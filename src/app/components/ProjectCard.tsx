@@ -16,7 +16,7 @@ export default function ProjectCard({
 }: Props) {
   return (
     <Link
-      href={`/portfolio/${slug}`}
+      href={`/projects/${slug}`}
       className="group block transition-all duration-300 hover:scale-[1.03]"
     >
       <div className="aspect-square overflow-hidden bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)] relative">

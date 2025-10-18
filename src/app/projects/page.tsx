@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import ProjectCard from "../components/ProjectCard";
 
-export const metadata = { title: "Portfolio" };
+export const metadata = { title: "Projects" };
 export const dynamic = "force-dynamic";
 
 async function getProjects() {
@@ -22,7 +22,7 @@ async function getProjects() {
       }>) ?? []
     );
   } catch (error) {
-    console.error("Portfolio API Error:", error);
+    console.error("Projects API Error:", error);
     // Fallback to sample data if API fails completely
     const { projects } = await import("../lib/sampleData");
     return projects.map((project) => ({
