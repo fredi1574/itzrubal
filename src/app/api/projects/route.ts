@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { projects as sampleProjects } from "@/app/lib/sampleData";
 
 type Project = {
   slug: string;
@@ -28,16 +29,27 @@ export async function GET() {
       ? data.result
       : [];
 
-    // If we have Sanity projects, return them
-    if (cmsProjects.length > 0) {
-      return NextResponse.json({ projects: cmsProjects });
+    // Merge Sanity projects with sample projects
+    // Sanity projects take priority by slug, then add sample projects
+    const bySlug = new Map<string, Project>();
+
+    // Add Sanity projects first (they take priority)
+    for (const p of cmsProjects) {
+      bySlug.set(p.slug, p);
     }
 
-    // If no Sanity projects, return empty array so frontend can fallback
-    return NextResponse.json({ projects: [] });
+    // Add sample projects that don't conflict with Sanity projects
+    for (const s of sampleProjects) {
+      if (!bySlug.has(s.slug)) {
+        bySlug.set(s.slug, s);
+      }
+    }
+
+    const merged = Array.from(bySlug.values());
+    return NextResponse.json({ projects: merged });
   } catch (error) {
     console.error("API Error:", error);
-    // On any error, return empty array so frontend can fallback
-    return NextResponse.json({ projects: [] });
+    // On any error, return sample data so portfolio isn't empty
+    return NextResponse.json({ projects: sampleProjects });
   }
 }

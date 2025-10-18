@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { projects as sampleProjects } from "@/app/lib/sampleData";
 
 const SANITY_PROJECT_ID = "22xxdrf2";
 const SANITY_DATASET = "project";
@@ -43,6 +44,8 @@ export async function GET(
     console.error("Project API Error:", error);
   }
 
-  // If no Sanity project found, return null so frontend can fallback
-  return NextResponse.json({ project: null }, { status: 404 });
+  // If no Sanity project found, try sample data
+  const fallback = sampleProjects.find((p) => p.slug === slug) || null;
+  if (!fallback) return NextResponse.json({ project: null }, { status: 404 });
+  return NextResponse.json({ project: fallback });
 }
