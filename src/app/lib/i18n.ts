@@ -5,7 +5,7 @@ export type Dictionary = Record<string, unknown>;
 export const dictionaries: Record<Locale, Dictionary> = {
   en: {
     nav: {
-      logo: "Itzrubal",
+      logo: "Iztrubal",
       home: "Home",
       about: "About",
       services: "Services",
