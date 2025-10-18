@@ -45,7 +45,7 @@ const alef = Alef({
 export const metadata: Metadata = {
   title: {
     default: "Iztrubal Interior Design",
-    template: "%s - Interior",
+    template: "%s - Iztrubal",
   },
 };
 
