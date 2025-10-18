@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Playfair_Display,
-  Inter,
-  Crimson_Text,
-  Alef,
-} from "next/font/google";
+import { Geist, Geist_Mono, Inter, Crimson_Text, Alef } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
