@@ -1,10 +1,47 @@
-export const projects = [
+type GalleryItem = {
+  beforeUrl?: string;
+  afterUrl?: string;
+  caption?: string;
+  url?: string;
+  alt?: string;
+  type?: "before-after" | "single" | "panorama";
+};
+
+type Project = {
+  slug: string;
+  title: string;
+  titleHe?: string;
+  location?: string;
+  locationHe?: string;
+  description?: string;
+  descriptionHe?: string;
+  coverUrl?: string;
+  completionDate?: string;
+  size?: string;
+  timeline?: string;
+  budget?: string;
+  team?: string[];
+  teamHe?: string[];
+  materials?: string[];
+  materialsHe?: string[];
+  highlights?: string[];
+  highlightsHe?: string[];
+  challenges?: string;
+  challengesHe?: string;
+  gallery?: GalleryItem[];
+};
+
+export const projects: Project[] = [
   {
     slug: "coastal-residence",
     title: "Coastal Residence",
+    titleHe: "מגורים על החוף",
     location: "Tel Aviv, Israel",
+    locationHe: "תל אביב, ישראל",
     description:
       "A stunning beachfront home that seamlessly blends modern luxury with coastal living. This project transformed a dated 1980s structure into a contemporary masterpiece that maximizes ocean views while maintaining privacy and comfort.",
+    descriptionHe:
+      "בית מרהיב על שפת הים שמשלב בצורה מושלמת בין יוקרה מודרנית לחיים על החוף. הפרויקט הזה הפך מבנה מיושן משנות ה-80 ליצירת מופת עכשווית שממקסמת את נוף הים תוך שמירה על פרטיות ונוחות.",
     coverUrl:
       "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop",
     completionDate: "March 2024",
@@ -16,12 +53,24 @@ export const projects = [
       "Project Manager: David Levy",
       "Architect: Michael Rosen",
     ],
+    teamHe: [
+      "מעצבת ראשית: שרה כהן",
+      "מנהל פרויקט: דוד לוי",
+      "אדריכל: מיכאל רוזן",
+    ],
     materials: [
       "Reclaimed Wood",
       "Marble",
       "Brass Hardware",
       "Natural Stone",
       "Custom Glass",
+    ],
+    materialsHe: [
+      "עץ ממוחזר",
+      "שיש",
+      "חומרי ברזל",
+      "אבן טבעית",
+      "זכוכית מותאמת אישית",
     ],
     highlights: [
       "Floor-to-ceiling windows with panoramic ocean views",
@@ -30,8 +79,17 @@ export const projects = [
       "Sustainable materials throughout",
       "Smart home integration",
     ],
+    highlightsHe: [
+      "חלונות רצפה-תקרה עם נוף פנורמי לים",
+      "מטבח מותאם אישית עם משטחי שיש איטלקי",
+      "סוויטת מאסטר עם מרפסת פרטית",
+      "חומרים בני קיימא בכל הבית",
+      "אינטגרציה של בית חכם",
+    ],
     challenges:
       "The main challenge was working within the strict coastal building regulations while maximizing the ocean views. We had to carefully balance the client's desire for openness with the need for privacy from the busy beachfront.",
+    challengesHe:
+      "האתגר העיקרי היה לעבוד בתוך התקנות הבנייה הקפדניות של החוף תוך מקסום נוף הים. היינו צריכים לאזן בקפידה בין רצון הלקוח לפתיחות לבין הצורך בפרטיות מהחוף העמוס.",
     gallery: [
       {
         beforeUrl:
