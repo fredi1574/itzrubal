@@ -37,7 +37,8 @@ export async function GET() {
     const merged = Array.from(bySlug.values());
 
     return NextResponse.json({ projects: merged });
-  } catch {
+  } catch (error) {
+    console.error("API Error:", error);
     // On any error, return sample data so page isn't empty
     return NextResponse.json({ projects: sampleProjects }, { status: 200 });
   }

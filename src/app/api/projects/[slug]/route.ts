@@ -40,7 +40,9 @@ export async function GET(
     const data = await res.json();
     const project = data?.result ?? null;
     if (project) return NextResponse.json({ project });
-  } catch {}
+  } catch (error) {
+    console.error("Project API Error:", error);
+  }
 
   const fallback = sampleProjects.find((p) => p.slug === slug) || null;
   if (!fallback) return NextResponse.json({ project: null }, { status: 404 });

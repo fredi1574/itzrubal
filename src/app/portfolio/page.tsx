@@ -23,7 +23,14 @@ async function getProjects() {
       }>) ?? []
     );
   } catch {
-    return [];
+    // Fallback to sample data if API fails
+    const { projects } = await import("../lib/sampleData");
+    return projects.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      location: p.location,
+      coverUrl: p.coverUrl
+    }));
   }
 }
 

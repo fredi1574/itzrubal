@@ -42,7 +42,9 @@ async function getProject(slug: string) {
     const data = await res.json();
     return (data?.project as Project) ?? null;
   } catch {
-    return null;
+    // Fallback to sample data if API fails
+    const { projects } = await import("../../lib/sampleData");
+    return projects.find(p => p.slug === slug) || null;
   }
 }
 
