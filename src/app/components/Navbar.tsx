@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale } from "../lib/LocaleProvider";
@@ -7,8 +8,9 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const linkDefs = [
   { href: "/", key: "nav.home" },
+  { href: "/about", key: "nav.about" },
   { href: "/services", key: "nav.services" },
-  { href: "/portfolio", key: "nav.portfolio" },
+  { href: "/projects", key: "nav.projects" },
   { href: "/contact", key: "nav.contact" },
 ];
 
@@ -22,26 +24,25 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="heading-md hover:text-accent transition-colors duration-300 hover:scale-105"
+            className="heading-md font-alef flex items-center transition-all gap-2 hover:text-accent duration-300 hover:scale-105"
           >
-            Hagit Oz Interior
+            <Image src="/logo.png" alt="Itzrubal logo" width={50} height={50} />
+            <span style={{ color: "#a96360" }}>{t("nav.logo") as string}</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
-            {linkDefs.map((l, index) => {
-              const active = pathname === l.href;
+            {linkDefs.map((link) => {
+              const active = pathname === link.href;
               return (
                 <Link
-                  key={l.href}
-                  href={l.href}
-                  className={`text-caption transition-all duration-300 hover:scale-105 animate-fade-in-up animate-stagger-${
-                    index + 1
-                  } ${
+                  key={link.href}
+                  href={link.href}
+                  className={`text-caption transition-all duration-300 hover:scale-105 animate-fade-in-up ${
                     active
                       ? "text-accent font-medium"
                       : "text-foreground/60 hover:text-accent"
                   }`}
                 >
-                  {t(l.key) as string}
+                  {t(link.key) as string}
                 </Link>
               );
             })}

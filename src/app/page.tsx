@@ -12,15 +12,14 @@ export default function Home() {
   const { t } = useLocale();
   const services =
     (t("home.servicesCards") as Array<{ title: string; body: string }>) ?? [];
-  const [projects, setProjects] =
-    useState<
-      Array<{
-        slug: string;
-        title: string;
-        location: string;
-        coverUrl?: string;
-      }>
-    >(sampleProjects);
+  const [projects, setProjects] = useState<
+    Array<{
+      slug: string;
+      title: string;
+      location: string;
+      coverUrl?: string;
+    }>
+  >(sampleProjects);
 
   useEffect(() => {
     let cancelled = false;
@@ -42,7 +41,7 @@ export default function Home() {
   }, []);
   return (
     <main>
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
+      <section className="relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
@@ -65,8 +64,8 @@ export default function Home() {
               {t("home.heroBody") as string}
             </p>
             <div className="mt-8 flex gap-3 animate-fade-in-up animate-stagger-3">
-              <ButtonLink href="/portfolio" className="hover-lift hover-glow">
-                {t("common.viewPortfolio") as string}
+              <ButtonLink href="/projects" className="hover-lift hover-glow">
+                {t("common.viewProjects") as string}
               </ButtonLink>
               <ButtonLink
                 href="/contact"

@@ -5,9 +5,11 @@ export type Dictionary = Record<string, unknown>;
 export const dictionaries: Record<Locale, Dictionary> = {
   en: {
     nav: {
+      logo: "Itzrubal",
       home: "Home",
+      about: "About",
       services: "Services",
-      portfolio: "Portfolio",
+      projects: "Projects",
       contact: "Contact",
       language: "Language",
       he: "עברית",
@@ -40,7 +42,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     common: {
       bookConsultation: "Book a consultation",
-      viewPortfolio: "View portfolio",
+      viewProjects: "View projects",
     },
     footer: {
       basedIn: "Based in Haifa, Israel · Available nationwide",
@@ -151,9 +153,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
   },
   he: {
     nav: {
-      home: "ראשי",
-      services: "שירותים",
-      portfolio: "פורטפוליו",
+      logo: "אצטרובל",
+      home: "דף הבית",
+      about: "אודות",
+      services: "מסלולים",
+      projects: "פרויקטים",
       contact: "צור קשר",
       language: "שפה",
       he: "עברית",
@@ -167,7 +171,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       selectedProjectsTitle: "פרויקטים נבחרים",
       selectedProjectsSubtitle: "הצצה לעבודות אחרונות.",
       exploreAllProjects: "צפו בכל הפרויקטים",
-      servicesTitle: "שירותים",
+      servicesTitle: "מסלולים",
       servicesSubtitle: "עיצוב פנים מקצה לקצה — מקונספט ועד התקנה.",
       servicesCards: [
         { title: "מגורים", body: "שיפוצים, בנייה חדשה והלבשת בתים." },
@@ -179,10 +183,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     common: {
       bookConsultation: "קבעו פגישת ייעוץ",
-      viewPortfolio: "צפו בפורטפוליו",
-    },
-    footer: {
-      basedIn: "מבוססים בחיפה, זמינים בפריסה ארצית",
+      viewProjects: "צפו בפרויקטים",
     },
     contact: {
       title: "צור קשר",
@@ -202,7 +203,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       },
     },
     services: {
-      title: "שירותים",
+      title: "מסלולים",
       subtitle: "מותאמים להיקף וללוחות הזמנים של הפרויקט שלכם ברחבי ישראל.",
       cards: [
         {

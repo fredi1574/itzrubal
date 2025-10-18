@@ -5,6 +5,7 @@ import {
   Playfair_Display,
   Inter,
   Crimson_Text,
+  Alef,
 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -12,14 +13,6 @@ import Footer from "./components/Footer";
 import { cookies } from "next/headers";
 import { LocaleProvider } from "./lib/LocaleProvider";
 import { getDirection, getSafeLocale } from "./lib/i18n";
-
-// Elegant serif for headings and display text
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-  style: ["normal", "italic"],
-});
 
 // Clean sans-serif for body text
 const inter = Inter({
@@ -48,28 +41,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Hebrew font for navbar
+const alef = Alef({
+  variable: "--font-alef",
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Hagit Oz Interior Design",
+    default: "Itzrubal Interior Design",
     template: "%s - Interior",
-  },
-  description:
-    "Timeless interiors for modern living. Residential, commercial, and staging.",
-  metadataBase: new URL("https://example.com"),
-  openGraph: {
-    title: "Atelier Interior — Residential & Commercial Design",
-    description:
-      "Timeless interiors for modern living. Residential, commercial, and staging.",
-    url: "https://example.com",
-    siteName: "Atelier Interior",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Atelier Interior",
-    description:
-      "Timeless interiors for modern living. Residential, commercial, and staging.",
   },
 };
 
@@ -84,7 +67,7 @@ export default async function RootLayout({
   return (
     <html lang={initialLocale} dir={dir}>
       <body
-        className={`${playfairDisplay.variable} ${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} ${alef.variable} antialiased`}
       >
         <LocaleProvider initialLocale={initialLocale}>
           <Navbar />

@@ -12,9 +12,6 @@ type GalleryItem = {
   beforeUrl?: string;
   afterUrl?: string;
   caption?: string;
-  url?: string;
-  alt?: string;
-  type?: "before-after" | "single" | "panorama";
 };
 
 type Project = {
@@ -44,8 +41,11 @@ async function getProject(slug: string) {
     if (!res.ok) throw new Error("failed");
     const data = await res.json();
     return (data?.project as Project) ?? null;
-  } catch {
-    return null;
+  } catch (error) {
+    console.error("Project API Error:", error);
+    // Fallback to sample data if API fails
+    const { projects } = await import("../../lib/sampleData");
+    return projects.find((p) => p.slug === slug) || null;
   }
 }
 

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   slug: string;
@@ -17,9 +17,9 @@ export default function ProjectCard({
   return (
     <Link
       href={`/portfolio/${slug}`}
-      className="group block transition-all duration-300 hover:scale-[1.02]"
+      className="group block transition-all duration-300 hover:scale-[1.03]"
     >
-      <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)] relative">
+      <div className="aspect-square overflow-hidden bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)] relative">
         {coverUrl ? (
           <Image
             src={coverUrl}
@@ -30,11 +30,10 @@ export default function ProjectCard({
             priority={false}
           />
         ) : null}
-        {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        {/* View indicator */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-          View Project
+        <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="px-4 py-2 border-2 border-white text-lg font-medium text-white transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+            View Project
+          </div>
         </div>
       </div>
       <div className="mt-3 flex items-center justify-between">
@@ -48,9 +47,6 @@ export default function ProjectCard({
             </div>
           )}
         </div>
-        <span className="text-caption text-foreground/60 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
-          View →
-        </span>
       </div>
     </Link>
   );
