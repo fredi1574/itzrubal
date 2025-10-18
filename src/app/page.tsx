@@ -16,7 +16,7 @@ export default function Home() {
     Array<{
       slug: string;
       title: string;
-      location: string;
+      location?: string;
       coverUrl?: string;
     }>
   >(sampleProjects);
