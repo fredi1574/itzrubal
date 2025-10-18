@@ -14,22 +14,35 @@ async function getProjects() {
     const res = await fetch(url, { next: { revalidate: 60 } });
     if (!res.ok) throw new Error("failed");
     const data = await res.json();
-    return (
-      (data?.projects as Array<{
-        slug: string;
-        title: string;
-        location: string;
-        coverUrl?: string;
-      }>) ?? []
-    );
-  } catch {
-    // Fallback to sample data if API fails
-    const { projects } = await import("../lib/sampleData");
-    return projects.map(p => ({
+    const projects = data?.projects as Array<{
+      slug: string;
+      title: string;
+      location: string;
+      coverUrl?: string;
+    }>;
+    
+    // If we have projects from API, return them
+    if (projects && projects.length > 0) {
+      return projects;
+    }
+    
+    // If no projects from API, fall back to sample data
+    const { projects: sampleProjects } = await import("../lib/sampleData");
+    return sampleProjects.map((p) => ({
       slug: p.slug,
       title: p.title,
       location: p.location,
-      coverUrl: p.coverUrl
+      coverUrl: p.coverUrl,
+    }));
+  } catch (error) {
+    console.error("Portfolio API Error:", error);
+    // Fallback to sample data if API fails completely
+    const { projects } = await import("../lib/sampleData");
+    return projects.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      location: p.location,
+      coverUrl: p.coverUrl,
     }));
   }
 }

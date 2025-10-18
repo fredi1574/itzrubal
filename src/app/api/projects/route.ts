@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { projects as sampleProjects } from "@/app/lib/sampleData";
 
 type Project = {
   slug: string;
@@ -29,17 +28,16 @@ export async function GET() {
       ? data.result
       : [];
 
-    // Merge CMS with sample; prefer CMS by slug, then fill remaining samples
-    const bySlug = new Map<string, Project>();
-    for (const p of cmsProjects) bySlug.set(p.slug, p);
-    for (const s of sampleProjects)
-      if (!bySlug.has(s.slug)) bySlug.set(s.slug, s);
-    const merged = Array.from(bySlug.values());
+    // If we have Sanity projects, return them
+    if (cmsProjects.length > 0) {
+      return NextResponse.json({ projects: cmsProjects });
+    }
 
-    return NextResponse.json({ projects: merged });
+    // If no Sanity projects, return empty array so frontend can fallback
+    return NextResponse.json({ projects: [] });
   } catch (error) {
     console.error("API Error:", error);
-    // On any error, return sample data so page isn't empty
-    return NextResponse.json({ projects: sampleProjects }, { status: 200 });
+    // On any error, return empty array so frontend can fallback
+    return NextResponse.json({ projects: [] });
   }
 }

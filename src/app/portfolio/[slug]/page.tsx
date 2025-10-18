@@ -44,7 +44,7 @@ async function getProject(slug: string) {
   } catch {
     // Fallback to sample data if API fails
     const { projects } = await import("../../lib/sampleData");
-    return projects.find(p => p.slug === slug) || null;
+    return projects.find((p) => p.slug === slug) || null;
   }
 }
 
