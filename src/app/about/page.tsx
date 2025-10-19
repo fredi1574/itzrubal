@@ -1,68 +1,64 @@
-"use client";
-
-import Section from "../components/Section";
+export const metadata = { title: "About" };
 
 export default function About() {
   return (
     <main>
-      <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="animate-fade-in-up">
-            {/* Placeholder for designer image */}
-            <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
+      <div className="grid mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-10 grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="animate-fade-in-up">
+          {/* Placeholder for designer image */}
+          <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <svg
+                  className="w-8 h-8 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="animate-fade-in-up animate-stagger-1">
-            <div className="prose prose-lg max-w-none">
-              <p className="text-body-lg leading-relaxed">
-                שמי חגית עוז. עיצוב פנים הוא לא רק מקצוע – זו הדרך שבה אני
-                מתבוננת על העולם.
-              </p>
+        <div className="animate-fade-in-up animate-stagger-1">
+          <div className="prose prose-lg max-w-none">
+            <p className="text-body-lg leading-relaxed">
+              שמי חגית עוז. עיצוב פנים הוא לא רק מקצוע – זו הדרך שבה אני מתבוננת
+              על העולם.
+            </p>
 
-              <p className="text-body leading-relaxed">
-                עבורי, כמו שמוזיקאי שומע צלילים, אני רואה חללים - מחפשת את
-                ההרמוניה, את מה שנמצא שם בפוטנציאל ומחכה להתגלות ואני עושה זאת
-                באמצעות שימוש בצבע, חומר ואור.
-              </p>
+            <p className="text-body leading-relaxed">
+              עבורי, כמו שמוזיקאי שומע צלילים, אני רואה חללים - מחפשת את
+              ההרמוניה, את מה שנמצא שם בפוטנציאל ומחכה להתגלות ואני עושה זאת
+              באמצעות שימוש בצבע, חומר ואור.
+            </p>
 
-              <p className="text-body leading-relaxed">
-                אני בעלת תואר ראשון במתמטיקה ומדעי המחשב ותואר שני במנהל עסקים –
-                שני עולמות שדורשים חשיבה אנליטית, ראייה מערכתית, סדר ויכולת
-                להתמקד במטרה. הרקע הזה בנה אצלי חשיבה לוגית, דיוק ואהבה לפתרון
-                בעיות מורכבות.
-              </p>
+            <p className="text-body leading-relaxed">
+              אני בעלת תואר ראשון במתמטיקה ומדעי המחשב ותואר שני במנהל עסקים –
+              שני עולמות שדורשים חשיבה אנליטית, ראייה מערכתית, סדר ויכולת להתמקד
+              במטרה. הרקע הזה בנה אצלי חשיבה לוגית, דיוק ואהבה לפתרון בעיות
+              מורכבות.
+            </p>
 
-              <p className="text-body leading-relaxed">
-                אבל הלב תמיד חיפש דרך להביא לידי ביטוי גם יצירתיות ורגש. רציתי
-                שהעשייה שלי תהיה משמעותית ושתביא ערך אמיתי לעולם, לא רק לייצר
-                תוצרים אלא גם לגעת באנשים ולשפר את איכות חייהם. ומכאן זה
-                התחיל.....
-              </p>
-            </div>
+            <p className="text-body leading-relaxed">
+              אבל הלב תמיד חיפש דרך להביא לידי ביטוי גם יצירתיות ורגש. רציתי
+              שהעשייה שלי תהיה משמעותית ושתביא ערך אמיתי לעולם, לא רק לייצר
+              תוצרים אלא גם לגעת באנשים ולשפר את איכות חייהם. ומכאן זה
+              התחיל.....
+            </p>
           </div>
         </div>
-      </Section>
+      </div>
 
       <section className="py-6 sm:py-8">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none animate-fade-in-up">
               <h2 className="heading-lg text-gradient">ההתחלה</h2>
 
               <p className="text-body leading-relaxed">
@@ -98,7 +94,7 @@ export default function About() {
       <section className="py-6 sm:py-8">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none animate-fade-in-up animate-stagger-2">
               <h2 className="heading-lg text-gradient">האצטרובל - הסמל</h2>
 
               <p className="text-body leading-relaxed">
@@ -129,7 +125,7 @@ export default function About() {
       <section className="py-6 sm:py-8">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none animate-fade-in-up animate-stagger-3">
               <h2 className="heading-lg text-gradient">החזון שלי</h2>
 
               <p className="text-body leading-relaxed">
