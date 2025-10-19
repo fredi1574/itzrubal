@@ -339,7 +339,7 @@ export function getDictionary(locale: Locale): Dictionary {
 }
 
 export function getSafeLocale(input?: string | null): Locale {
-  return input === "he" ? "he" : "en";
+  return input === "en" ? "en" : "he";
 }
 
 export function getByPath(dict: Dictionary, path: string): unknown {
