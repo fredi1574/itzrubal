@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "../lib/LocaleProvider";
 
 type Props = {
   slug: string;
@@ -14,6 +17,7 @@ export default function ProjectCard({
   location,
   coverUrl,
 }: Props) {
+  const { t } = useLocale();
   return (
     <Link
       href={`/projects/${slug}`}
@@ -32,7 +36,7 @@ export default function ProjectCard({
         ) : null}
         <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="px-4 py-2 border-2 border-white text-lg font-medium text-white transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-            View Project
+            {t("projects.viewProject") as string}
           </div>
         </div>
       </div>
