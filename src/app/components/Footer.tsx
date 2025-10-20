@@ -13,7 +13,7 @@ const links = [
     alt: "Facebook",
   },
   {
-    href: "https://www.linkedin.com/in/hagit-oz-interior-design/",
+    href: "https://www.linkedin.com/in/hagitoz",
     icon: "/linkedin.png",
     alt: "LinkedIn",
   },
