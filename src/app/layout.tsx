@@ -60,11 +60,11 @@ export default async function RootLayout({
   return (
     <html lang={initialLocale} dir={dir}>
       <body
-        className={`${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} ${alef.variable} antialiased`}
+        className={`${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} ${alef.variable} antialiased min-h-screen flex flex-col`}
       >
         <LocaleProvider initialLocale={initialLocale}>
           <Navbar />
-          {children}
+          <main className="flex-1">{children}</main>
           <Footer />
         </LocaleProvider>
       </body>

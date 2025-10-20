@@ -29,9 +29,14 @@ export default function Footer() {
           </p>
           <div className="text-sm flex gap-3 text-foreground/60 hover:text-accent transition-colors duration-300 animate-fade-in-up animate-stagger-1">
             {links.map((link) => (
-              <Link key={link.href} href={link.href}>
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image src={link.icon} alt={link.alt} width={20} height={20} />
-              </Link>
+              </a>
             ))}
           </div>
         </div>

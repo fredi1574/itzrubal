@@ -85,7 +85,7 @@ export default function ProjectPageClient({ project }: Props) {
   };
 
   return (
-    <main>
+    <div>
       {/* Hero Section */}
       <div className="relative">
         {project.coverUrl ? (
@@ -269,6 +269,6 @@ export default function ProjectPageClient({ project }: Props) {
           />
         </Section>
       )}
-    </main>
+    </div>
   );
 }
