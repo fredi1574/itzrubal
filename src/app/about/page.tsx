@@ -85,7 +85,7 @@ export default function About() {
               <p className="text-body leading-relaxed">
                 בעיניי, עיצוב הוא לא רק איך המקום נראה – אלא{" "}
                 <b>איך הוא גורם לנו להרגיש</b>. וכך נולד הסטודיו לעיצוב פנים - ה
-                <span className="text-[#a96360]">אצטרובל</span>
+                <span className="text-[#a96360]">אִצְטְרֻבָּל</span>
               </p>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function About() {
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none animate-fade-in-up animate-stagger-2">
-              <h2 className="heading-lg text-gradient">האצטרובל - הסמל</h2>
+              <h2 className="heading-lg text-gradient">אִצְטְרֻבָּל - הסמל</h2>
 
               <p className="text-body leading-relaxed">
                 האצטרובל, סמל טבעי ואורגני, מגלם בתוכו חיבור עמוק לטבע ולסביבה.

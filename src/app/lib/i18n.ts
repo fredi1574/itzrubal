@@ -173,7 +173,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
   },
   he: {
     nav: {
-      logo: "אצטרובל",
+      logo: "אִצְטְרֻבָּל",
       home: "דף הבית",
       about: "אודות",
       services: "מסלולים",
