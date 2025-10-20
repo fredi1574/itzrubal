@@ -44,9 +44,9 @@ export default function ContactPage() {
 
   if (status === "success") {
     return (
-      <main className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
+      <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
         <div className="max-w-2xl mx-auto text-center animate-fade-in-up px-4 w-full">
-          <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-8 border border-accent/20">
+          <div className="bg-gradient-to-br from-accent/10 to-accent/5 p-8 border border-accent/20">
             <div className="w-16 h-16 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
               <svg
                 className="w-8 h-8 text-accent"
@@ -84,12 +84,12 @@ export default function ContactPage() {
             </button>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
+    <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
       <div className="max-w-2xl mx-auto px-4 w-full">
         <form
           onSubmit={onSubmit}
@@ -103,8 +103,7 @@ export default function ContactPage() {
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="h-12 rounded-xl bg-[color-mix(in_oklab,var(--muted)_90%,transparent)] px-4 text-body border border-transparent focus:border-accent/30 focus:ring-2 focus:ring-accent/10 transition-all duration-300 hover:bg-[color-mix(in_oklab,var(--muted)_85%,transparent)]"
-              placeholder={t("contact.form.namePlaceholder") as string}
+              className="h-12 bg-white border-1 px-4 text-body focus:border-accent/30 focus:ring-2 focus:ring-accent/10"
               required
               disabled={status === "submitting"}
             />
@@ -119,8 +118,7 @@ export default function ContactPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="h-12 rounded-xl bg-[color-mix(in_oklab,var(--muted)_90%,transparent)] px-4 text-body border border-transparent focus:border-accent/30 focus:ring-2 focus:ring-accent/10 transition-all duration-300 hover:bg-[color-mix(in_oklab,var(--muted)_85%,transparent)]"
-              placeholder={t("contact.form.emailPlaceholder") as string}
+              className="h-12 bg-white border-1 px-4 text-body focus:border-accent/30 focus:ring-2 focus:ring-accent/10"
               required
               disabled={status === "submitting"}
             />
@@ -134,8 +132,7 @@ export default function ContactPage() {
               name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="min-h-32 rounded-xl bg-[color-mix(in_oklab,var(--muted)_90%,transparent)] px-4 py-3 text-body border border-transparent focus:border-accent/30 focus:ring-2 focus:ring-accent/10 transition-all duration-300 hover:bg-[color-mix(in_oklab,var(--muted)_85%,transparent)] resize-none"
-              placeholder={t("contact.form.messagePlaceholder") as string}
+              className="min-h-32 px-4 py-3 text-body border-1 focus:border-accent/30 focus:ring-2 focus:ring-accent/10 resize-none"
               required
               disabled={status === "submitting"}
             />
@@ -163,7 +160,7 @@ export default function ContactPage() {
           <div className="sm:col-span-2 pt-4">
             <button
               disabled={status !== "idle"}
-              className="w-full h-12 rounded-xl bg-accent text-background font-medium transition-all duration-300 hover:brightness-95 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md flex items-center justify-center gap-3"
+              className="w-full h-12 bg-accent text-background font-medium transition-all duration-300 hover:brightness-95 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md flex items-center justify-center gap-3"
             >
               {status === "submitting" && (
                 <svg
@@ -193,6 +190,6 @@ export default function ContactPage() {
           </div>
         </form>
       </div>
-    </main>
+    </div>
   );
 }
