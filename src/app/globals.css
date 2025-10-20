@@ -24,7 +24,7 @@
     --background: #fff;
     --foreground: #1f1b16;
     --muted: #f4ece3;
-    --accent: #458483;
+    --accent: #5f6f65;
   }
 }
 
@@ -410,6 +410,19 @@ html {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.875rem;
+}
+
+/* Studio name styling */
+.studio-name {
+  color: #a96360;
+}
+
+/* Footer styling */
+footer {
+  margin-top: auto;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 /* Responsive Typography */
