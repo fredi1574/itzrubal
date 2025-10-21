@@ -85,11 +85,11 @@ export default function ProjectPageClient({ project }: Props) {
   };
 
   return (
-    <div>
-      {/* Hero Section */}
+    <div className="min-h-screen">
+      {/* Compact Hero Section */}
       <div className="relative">
         {project.coverUrl ? (
-          <div className="relative h-[70vh] min-h-[500px] overflow-hidden">
+          <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
             <Image
               src={project.coverUrl}
               alt={getLocalizedTitle()}
@@ -97,33 +97,80 @@ export default function ProjectPageClient({ project }: Props) {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-12">
-              <div className="max-w-4xl">
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4">
-                  {getLocalizedTitle()}
-                </h1>
-                {getLocalizedLocation() && (
-                  <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 sm:mb-6">
-                    {getLocalizedLocation()}
-                  </p>
-                )}
-                {getLocalizedDescription() && (
-                  <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-                    {getLocalizedDescription()}
-                  </p>
-                )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+              <div className="max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+                  <div className="lg:col-span-2">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">
+                      {getLocalizedTitle()}
+                    </h1>
+                    {getLocalizedLocation() && (
+                      <p className="text-lg sm:text-xl text-white/90 mb-3 sm:mb-4">
+                        {getLocalizedLocation()}
+                      </p>
+                    )}
+                    {getLocalizedDescription() && (
+                      <p className="text-sm sm:text-base text-white/80 max-w-2xl leading-relaxed">
+                        {getLocalizedDescription()}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Quick Project Info */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
+                    <h3 className="text-lg font-semibold text-white mb-4">
+                      {t("projects.projectDetails") as string}
+                    </h3>
+                    <div className="space-y-3 text-sm">
+                      {project.completionDate && (
+                        <div className="flex justify-between">
+                          <span className="text-white/70">
+                            {t("projects.completionDate") as string}
+                          </span>
+                          <span className="text-white">
+                            {project.completionDate}
+                          </span>
+                        </div>
+                      )}
+                      {project.size && (
+                        <div className="flex justify-between">
+                          <span className="text-white/70">
+                            {t("projects.size") as string}
+                          </span>
+                          <span className="text-white">{project.size}</span>
+                        </div>
+                      )}
+                      {project.timeline && (
+                        <div className="flex justify-between">
+                          <span className="text-white/70">
+                            {t("projects.timeline") as string}
+                          </span>
+                          <span className="text-white">{project.timeline}</span>
+                        </div>
+                      )}
+                      {project.budget && (
+                        <div className="flex justify-between">
+                          <span className="text-white/70">
+                            {t("projects.budgetRange") as string}
+                          </span>
+                          <span className="text-white">{project.budget}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ) : (
-          <div className="h-[70vh] min-h-[500px] bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+          <div className="h-[50vh] min-h-[400px] bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
             <div className="text-center px-4">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">
                 {getLocalizedTitle()}
               </h1>
               {getLocalizedLocation() && (
-                <p className="text-lg sm:text-xl md:text-2xl text-foreground/70 mb-4 sm:mb-6">
+                <p className="text-lg sm:text-xl text-foreground/70 mb-3 sm:mb-4">
                   {getLocalizedLocation()}
                 </p>
               )}
@@ -132,142 +179,103 @@ export default function ProjectPageClient({ project }: Props) {
         )}
       </div>
 
-      {/* Project Details Section */}
-      <Section title={t("projects.projectOverview") as string}>
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6 lg:space-y-8">
-            {project.description && (
-              <div>
-                <h3 className="text-xl font-semibold mb-4">
-                  {t("projects.aboutThisProject") as string}
-                </h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  {getLocalizedDescription()}
-                </p>
-              </div>
-            )}
+      {/* Compact Project Details */}
+      <div className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-4 gap-6 lg:gap-8">
+            {/* Main Content - 3 columns */}
+            <div className="lg:col-span-3 space-y-6">
+              {/* Project Highlights - Compact Grid */}
+              {getLocalizedHighlights() &&
+                getLocalizedHighlights()!.length > 0 && (
+                  <div className="card p-4 sm:p-6">
+                    <h3 className="text-lg font-semibold mb-4">
+                      {t("projects.keyHighlights") as string}
+                    </h3>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {getLocalizedHighlights()!.map((highlight, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <span className="text-primary mt-1 flex-shrink-0">
+                            •
+                          </span>
+                          <span className="text-foreground/80 text-sm">
+                            {highlight}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
-            {/* Project Highlights */}
-            {getLocalizedHighlights() &&
-              getLocalizedHighlights()!.length > 0 && (
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">
-                    {t("projects.keyHighlights") as string}
+              {/* Challenges - Compact */}
+              {getLocalizedChallenges() && (
+                <div className="card p-4 sm:p-6">
+                  <h3 className="text-lg font-semibold mb-4">
+                    {t("projects.designChallenges") as string}
+                  </h3>
+                  <p className="text-foreground/80 leading-relaxed text-sm">
+                    {getLocalizedChallenges()}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Sidebar - 1 column */}
+            <div className="space-y-4">
+              {/* Materials */}
+              {getLocalizedMaterials() &&
+                getLocalizedMaterials()!.length > 0 && (
+                  <div className="card p-4 sm:p-6">
+                    <h3 className="text-lg font-semibold mb-4">
+                      {t("projects.materialsUsed") as string}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {getLocalizedMaterials()!.map((material, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs"
+                        >
+                          {material}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              {/* Team */}
+              {getLocalizedTeam() && getLocalizedTeam()!.length > 0 && (
+                <div className="card p-4 sm:p-6">
+                  <h3 className="text-lg font-semibold mb-4">
+                    {t("projects.projectTeam") as string}
                   </h3>
                   <ul className="space-y-2">
-                    {getLocalizedHighlights()!.map((highlight, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <span className="text-primary mt-1">•</span>
-                        <span className="text-foreground/80">{highlight}</span>
+                    {getLocalizedTeam()!.map((member, index) => (
+                      <li key={index} className="text-foreground/80 text-sm">
+                        {member}
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
-
-            {/* Challenges */}
-            {getLocalizedChallenges() && (
-              <div>
-                <h3 className="text-xl font-semibold mb-4">
-                  {t("projects.designChallenges") as string}
-                </h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  {getLocalizedChallenges()}
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Project Meta Information */}
-          <div className="space-y-4 lg:space-y-6">
-            <div className="card p-4 sm:p-6">
-              <h3 className="text-lg font-semibold mb-4">
-                {t("projects.projectDetails") as string}
-              </h3>
-              <div className="space-y-3">
-                {project.completionDate && (
-                  <div>
-                    <span className="text-sm font-medium text-foreground/60">
-                      {t("projects.completionDate") as string}
-                    </span>
-                    <p className="text-foreground">{project.completionDate}</p>
-                  </div>
-                )}
-                {project.size && (
-                  <div>
-                    <span className="text-sm font-medium text-foreground/60">
-                      {t("projects.size") as string}
-                    </span>
-                    <p className="text-foreground">{project.size}</p>
-                  </div>
-                )}
-                {project.timeline && (
-                  <div>
-                    <span className="text-sm font-medium text-foreground/60">
-                      {t("projects.timeline") as string}
-                    </span>
-                    <p className="text-foreground">{project.timeline}</p>
-                  </div>
-                )}
-                {project.budget && (
-                  <div>
-                    <span className="text-sm font-medium text-foreground/60">
-                      {t("projects.budgetRange") as string}
-                    </span>
-                    <p className="text-foreground">{project.budget}</p>
-                  </div>
-                )}
-              </div>
             </div>
-
-            {/* Materials */}
-            {getLocalizedMaterials() && getLocalizedMaterials()!.length > 0 && (
-              <div className="card p-4 sm:p-6">
-                <h3 className="text-lg font-semibold mb-4">
-                  {t("projects.materialsUsed") as string}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {getLocalizedMaterials()!.map((material, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
-                    >
-                      {material}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Team */}
-            {getLocalizedTeam() && getLocalizedTeam()!.length > 0 && (
-              <div className="card p-4 sm:p-6">
-                <h3 className="text-lg font-semibold mb-4">
-                  {t("projects.projectTeam") as string}
-                </h3>
-                <ul className="space-y-2">
-                  {getLocalizedTeam()!.map((member, index) => (
-                    <li key={index} className="text-foreground/80">
-                      {member}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
         </div>
-      </Section>
+      </div>
 
-      {/* Gallery Section */}
+      {/* Compact Gallery Section */}
       {Array.isArray(project.gallery) && project.gallery.length > 0 && (
-        <Section title={t("projects.projectGallery") as string}>
-          <Gallery
-            items={project.gallery}
-            beforeText={t("projects.before") as string}
-            afterText={t("projects.after") as string}
-          />
-        </Section>
+        <div className="py-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              {t("projects.projectGallery") as string}
+            </h2>
+            <Gallery
+              items={project.gallery}
+              beforeText={t("projects.before") as string}
+              afterText={t("projects.after") as string}
+            />
+          </div>
+        </div>
       )}
     </div>
   );
