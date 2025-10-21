@@ -42,7 +42,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ease-out shadow-sm hover:scale-105 active:scale-95 ${classesForVariant(
+      className={`inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium transition-all duration-300 ease-out shadow-sm hover:scale-105 active:scale-95 ${classesForVariant(
         variant
       )} ${className ?? ""}`}
       {...props}

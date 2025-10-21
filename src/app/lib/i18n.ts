@@ -170,6 +170,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
       before: "Before",
       after: "After",
     },
+    notFound: {
+      title: "Project not found",
+      backToHome: "Back to Homepage",
+      viewAllProjects: "View All Projects",
+    },
   },
   he: {
     nav: {
@@ -326,6 +331,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
       projectGallery: "גלריית הפרויקט",
       before: "לפני",
       after: "אחרי",
+    },
+    notFound: {
+      title: "הפרויקט לא נמצא",
+      backToHome: "חזרה לדף הבית",
+      viewAllProjects: "צפו בכל הפרויקטים",
     },
   },
 };
