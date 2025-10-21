@@ -7,7 +7,7 @@ type GalleryItem = {
   type?: "before-after" | "single" | "panorama";
 };
 
-type Project = {
+export type Project = {
   slug: string;
   title: string;
   titleHe?: string;

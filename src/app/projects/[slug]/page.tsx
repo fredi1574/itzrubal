@@ -6,38 +6,7 @@ export const dynamic = "force-dynamic";
 
 type Props = { params: { slug: string } };
 
-type GalleryItem = {
-  beforeUrl?: string;
-  afterUrl?: string;
-  caption?: string;
-  url?: string;
-  alt?: string;
-  type?: "before-after" | "single" | "panorama";
-};
-
-type Project = {
-  slug: string;
-  title: string;
-  titleHe?: string;
-  location?: string;
-  locationHe?: string;
-  description?: string;
-  descriptionHe?: string;
-  coverUrl?: string;
-  gallery?: GalleryItem[];
-  completionDate?: string;
-  size?: string;
-  budget?: string;
-  team?: string[];
-  teamHe?: string[];
-  materials?: string[];
-  materialsHe?: string[];
-  timeline?: string;
-  challenges?: string;
-  challengesHe?: string;
-  highlights?: string[];
-  highlightsHe?: string[];
-};
+import type { Project } from "@/app/lib/sampleData";
 
 async function getProject(slug: string) {
   try {
