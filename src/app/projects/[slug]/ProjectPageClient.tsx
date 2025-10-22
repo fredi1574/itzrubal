@@ -2,41 +2,8 @@
 
 import Image from "next/image";
 import Gallery from "../../components/Gallery";
-import Section from "../../components/Section";
 import { useLocale } from "../../lib/LocaleProvider";
-
-type GalleryItem = {
-  beforeUrl?: string;
-  afterUrl?: string;
-  caption?: string;
-  url?: string;
-  alt?: string;
-  type?: "before-after" | "single" | "panorama";
-};
-
-type Project = {
-  slug: string;
-  title: string;
-  titleHe?: string;
-  location?: string;
-  locationHe?: string;
-  description?: string;
-  descriptionHe?: string;
-  coverUrl?: string;
-  gallery?: GalleryItem[];
-  completionDate?: string;
-  size?: string;
-  budget?: string;
-  team?: string[];
-  teamHe?: string[];
-  materials?: string[];
-  materialsHe?: string[];
-  timeline?: string;
-  challenges?: string;
-  challengesHe?: string;
-  highlights?: string[];
-  highlightsHe?: string[];
-};
+import { Project } from "../../lib/types";
 
 type Props = {
   project: Project;

@@ -2,14 +2,16 @@
 
 import {
   createContext,
+  ReactNode,
+  useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
-  ReactNode,
-  useEffect,
-  useCallback,
 } from "react";
-import { getByPath, getDictionary, getSafeLocale, type Locale } from "./i18n";
+import { getByPath, getDictionary, getSafeLocale } from "./i18n";
+import { Locale } from "./types";
+import { useRouter } from "next/navigation";
 
 type LocaleContextValue = {
   locale: Locale;
@@ -33,6 +35,7 @@ export function LocaleProvider({
   children: ReactNode;
 }) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale);
+  const router = useRouter();
 
   useEffect(() => {
     // Keep cookie in sync when mounting with initialLocale (SSR value)
@@ -68,10 +71,10 @@ export function LocaleProvider({
         setLocaleState(l);
         setCookie("locale", l);
         // reload to apply server-rendered lang/dir
-        window.location.reload();
+        router.refresh();
       },
     }),
-    [locale, t]
+    [locale, router, t]
   );
 
   return (

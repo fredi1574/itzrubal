@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 type Props = { params: { slug: string } };
 
-import type { Project } from "@/app/lib/sampleData";
+import { Project } from "@/app/lib/types";
 
 async function getProject(slug: string) {
   try {
