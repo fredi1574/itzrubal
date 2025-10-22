@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Gallery from "../../components/Gallery";
+import ImageCarousel from "../../components/ImageCarousel";
+import { ButtonLink } from "../../components/Button";
 import { useLocale } from "../../lib/LocaleProvider";
 import { Project } from "../../lib/types";
 
@@ -146,6 +147,33 @@ export default function ProjectPageClient({ project }: Props) {
         )}
       </div>
 
+      {/* Back Navigation */}
+      <div className="px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-6xl mx-auto">
+          <ButtonLink
+            href="/projects"
+            variant="ghost"
+            className="inline-flex items-center gap-2 text-sm hover:bg-gray-50"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            {t("projects.backToProjects") as string}
+          </ButtonLink>
+        </div>
+      </div>
+
       {/* Compact Project Details */}
       <div className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -229,14 +257,14 @@ export default function ProjectPageClient({ project }: Props) {
         </div>
       </div>
 
-      {/* Compact Gallery Section */}
+      {/* New Horizontal Gallery Section */}
       {Array.isArray(project.gallery) && project.gallery.length > 0 && (
         <div className="py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold mb-6 text-center">
               {t("projects.projectGallery") as string}
             </h2>
-            <Gallery
+            <ImageCarousel
               items={project.gallery}
               beforeText={t("projects.before") as string}
               afterText={t("projects.after") as string}
