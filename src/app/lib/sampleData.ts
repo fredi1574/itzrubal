@@ -1,35 +1,4 @@
-type GalleryItem = {
-  beforeUrl?: string;
-  afterUrl?: string;
-  caption?: string;
-  url?: string;
-  alt?: string;
-  type?: "before-after" | "single" | "panorama";
-};
-
-export type Project = {
-  slug: string;
-  title: string;
-  titleHe?: string;
-  location?: string;
-  locationHe?: string;
-  description?: string;
-  descriptionHe?: string;
-  coverUrl?: string;
-  completionDate?: string;
-  size?: string;
-  timeline?: string;
-  budget?: string;
-  team?: string[];
-  teamHe?: string[];
-  materials?: string[];
-  materialsHe?: string[];
-  highlights?: string[];
-  highlightsHe?: string[];
-  challenges?: string;
-  challengesHe?: string;
-  gallery?: GalleryItem[];
-};
+import type { Project, Testimonial } from "./types";
 
 export const projects: Project[] = [
   {
@@ -698,7 +667,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     quote:
       "זה הייתה חוויה מעולה! הם יצרו חלל נוח ויפה שמתאים לצורת החיים שלנו.",
@@ -710,10 +679,4 @@ export const testimonials = [
     author: "ג'וי שמחה עוז",
     role: "לקוחות",
   },
-
-  // {
-  //   quote: "They transformed our home beyond expectations.",
-  //   author: "S. Williams",
-  // },
-  // { quote: "Beautiful, functional, and on schedule.", author: "J. Patel" },
 ];

@@ -1,6 +1,4 @@
-export type Locale = "en" | "he";
-
-export type Dictionary = Record<string, unknown>;
+import type { Locale, Dictionary } from "./types";
 
 export const dictionaries: Record<Locale, Dictionary> = {
   en: {
