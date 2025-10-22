@@ -77,7 +77,7 @@ export default function ContactPage() {
                 setMessage("");
                 setError(null);
               }}
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 bg-accent text-background hover:brightness-95 hover:scale-105 shadow-sm"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 bg-accent text-background hover:brightness-95 hover:scale-105 shadow-sm"
             >
               {(t("contact.form.sendAnother") as string) ||
                 "Send Another Message"}

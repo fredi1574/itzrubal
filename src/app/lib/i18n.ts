@@ -60,6 +60,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
         submitSuccess: "Sent!",
         errorGeneric: "Something went wrong",
         errorFailed: "Failed to send message",
+        successTitle: "Message Sent!",
+        successMessage:
+          "Thank you for your inquiry. I'll get back to you as soon as possible to discuss your project.",
+        sendAnother: "Send Another Message",
       },
     },
     services: {
@@ -223,6 +227,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
         submitSuccess: "נשלח!",
         errorGeneric: "משהו השתבש",
         errorFailed: "שליחת ההודעה נכשלה",
+        successTitle: "ההודעה נשלחה!",
+        successMessage:
+          "תודה על הפנייה. אחזור אליכם בהקדם כדי לדון בפרויקט שלכם.",
+        sendAnother: "שלחו הודעה נוספת",
       },
     },
     services: {
