@@ -16,6 +16,7 @@ export async function GET(
       "slug": slug.current,
       title,
       description,
+      location,
       "coverUrl": coalesce(coverImage.asset->url, ""),
       completionDate,
       size,

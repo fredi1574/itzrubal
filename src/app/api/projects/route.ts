@@ -16,6 +16,7 @@ const GROQ = encodeURIComponent(`*[_type == "project"]{
   "slug": slug.current,
   title,
   description,
+  location,
   "coverUrl": coalesce(coverImage.asset->url, ""),
 }[0...50]`);
 
