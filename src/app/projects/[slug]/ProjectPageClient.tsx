@@ -86,7 +86,7 @@ export default function ProjectPageClient({ project }: Props) {
                   </div>
 
                   {/* Quick Project Info */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 border border-white/20">
                     <h3 className="text-lg font-semibold text-white mb-4">
                       {t("projects.projectDetails") as string}
                     </h3>
@@ -228,7 +228,7 @@ export default function ProjectPageClient({ project }: Props) {
                       {getLocalizedMaterials()!.map((material, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs"
+                          className="px-2 py-1 bg-primary/10 text-primary text-xs"
                         >
                           {material}
                         </span>
@@ -257,7 +257,7 @@ export default function ProjectPageClient({ project }: Props) {
         </div>
       </div>
 
-      {/* New Horizontal Gallery Section */}
+      {/* Horizontal Gallery Section */}
       {Array.isArray(project.gallery) && project.gallery.length > 0 && (
         <div className="py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">

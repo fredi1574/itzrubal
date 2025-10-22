@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import ImageModal from "./ImageModal";
 
 type GalleryItem = {
   beforeUrl?: string;
@@ -26,6 +27,11 @@ export default function ImageCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [modalImage, setModalImage] = useState<{
+    src: string;
+    alt: string;
+    caption?: string;
+  } | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = () => {
@@ -38,6 +44,14 @@ export default function ImageCarousel({
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  const openModal = (src: string, alt: string, caption?: string) => {
+    setModalImage({ src, alt, caption });
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -111,7 +125,7 @@ export default function ImageCarousel({
   return (
     <div className="relative">
       {/* Main Image Display */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-gray-100">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
         {itemType === "before-after" ? (
           <div
             ref={sliderRef}
@@ -125,7 +139,19 @@ export default function ImageCarousel({
             onTouchEnd={handleTouchEnd}
           >
             {/* Before Image */}
-            <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 cursor-pointer"
+              onClick={() =>
+                currentItem.beforeUrl &&
+                openModal(
+                  currentItem.beforeUrl,
+                  currentItem.caption
+                    ? `${currentItem.caption} (before)`
+                    : `Before`,
+                  currentItem.caption
+                )
+              }
+            >
               {currentItem.beforeUrl ? (
                 <Image
                   src={currentItem.beforeUrl}
@@ -144,8 +170,18 @@ export default function ImageCarousel({
 
             {/* After Image with clipping */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 cursor-pointer"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+              onClick={() =>
+                currentItem.afterUrl &&
+                openModal(
+                  currentItem.afterUrl,
+                  currentItem.caption
+                    ? `${currentItem.caption} (after)`
+                    : `After`,
+                  currentItem.caption
+                )
+              }
             >
               {currentItem.afterUrl ? (
                 <Image
@@ -172,15 +208,27 @@ export default function ImageCarousel({
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-accent rounded-full shadow-lg flex items-center justify-center cursor-col-resize"></div>
             </div>
 
-            <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
+            <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
               {beforeText}
             </div>
-            <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
+            <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
               {afterText}
             </div>
           </div>
         ) : itemType === "panorama" ? (
-          <div className="relative w-full h-full">
+          <div
+            className="relative w-full h-full cursor-pointer"
+            onClick={() =>
+              (currentItem.url || currentItem.beforeUrl) &&
+              openModal(
+                currentItem.url || currentItem.beforeUrl!,
+                currentItem.alt ||
+                  currentItem.caption ||
+                  `Gallery image ${currentIndex + 1}`,
+                currentItem.caption
+              )
+            }
+          >
             {currentItem.url || currentItem.beforeUrl ? (
               <Image
                 src={currentItem.url || currentItem.beforeUrl!}
@@ -197,7 +245,19 @@ export default function ImageCarousel({
             )}
           </div>
         ) : (
-          <div className="relative w-full h-full">
+          <div
+            className="relative w-full h-full cursor-pointer"
+            onClick={() =>
+              (currentItem.url || currentItem.beforeUrl) &&
+              openModal(
+                currentItem.url || currentItem.beforeUrl!,
+                currentItem.alt ||
+                  currentItem.caption ||
+                  `Gallery image ${currentIndex + 1}`,
+                currentItem.caption
+              )
+            }
+          >
             {currentItem.url || currentItem.beforeUrl ? (
               <Image
                 src={currentItem.url || currentItem.beforeUrl!}
@@ -261,7 +321,7 @@ export default function ImageCarousel({
 
         {/* Image Counter */}
         {items.length > 1 && (
-          <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs z-20">
+          <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs z-20">
             {currentIndex + 1} / {items.length}
           </div>
         )}
@@ -278,14 +338,14 @@ export default function ImageCarousel({
 
       {/* Thumbnail Navigation */}
       {items.length > 1 && (
-        <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
+        <div className="mt-4 flex gap-2 justify-center overflow-x-auto pb-1">
           {items.map((item, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`relative flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all ${
+              className={`relative flex-shrink-0 w-16 h-12 mt-2 overflow-hidden transition-all ${
                 index === currentIndex
-                  ? "ring-2 ring-primary scale-105"
+                  ? "ring-1 ring-accent scale-105"
                   : "opacity-60 hover:opacity-80"
               }`}
             >
@@ -302,6 +362,17 @@ export default function ImageCarousel({
             </button>
           ))}
         </div>
+      )}
+
+      {/* Image Modal */}
+      {modalImage && (
+        <ImageModal
+          isOpen={!!modalImage}
+          onClose={closeModal}
+          src={modalImage.src}
+          alt={modalImage.alt}
+          caption={modalImage.caption}
+        />
       )}
     </div>
   );

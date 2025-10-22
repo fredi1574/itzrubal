@@ -172,6 +172,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
       before: "Before",
       after: "After",
     },
+    gallery: {
+      pressEscToClose: "Press ESC to close",
+    },
     notFound: {
       title: "Project not found",
       backToHome: "Back to Homepage",
@@ -337,6 +340,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
       projectGallery: "גלרייה",
       before: "לפני",
       after: "אחרי",
+    },
+    gallery: {
+      pressEscToClose: "לחצו ESC לסגירה",
     },
     notFound: {
       title: "הפרויקט לא נמצא",

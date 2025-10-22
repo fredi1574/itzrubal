@@ -35,7 +35,7 @@ export default function Gallery({
                     {beforeText}
                   </h4>
                   {g.beforeUrl ? (
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden">
                       <Image
                         src={g.beforeUrl}
                         alt={g.caption ? `${g.caption} (before)` : `Before`}
@@ -46,7 +46,7 @@ export default function Gallery({
                       />
                     </div>
                   ) : (
-                    <div className="aspect-[4/3] rounded-xl bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
+                    <div className="aspect-[4/3] bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
                   )}
                 </div>
                 <div className="space-y-2">
@@ -54,7 +54,7 @@ export default function Gallery({
                     {afterText}
                   </h4>
                   {g.afterUrl ? (
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden">
                       <Image
                         src={g.afterUrl}
                         alt={g.caption ? `${g.caption} (after)` : `After`}
@@ -65,7 +65,7 @@ export default function Gallery({
                       />
                     </div>
                   ) : (
-                    <div className="aspect-[4/3] rounded-xl bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
+                    <div className="aspect-[4/3] bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
                   )}
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function Gallery({
           return (
             <div key={i} className="space-y-4">
               {g.url || g.beforeUrl ? (
-                <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl">
+                <div className="relative aspect-[21/9] w-full overflow-hidden">
                   <Image
                     src={g.url || g.beforeUrl!}
                     alt={g.alt || g.caption || `Gallery image ${i + 1}`}
@@ -95,7 +95,7 @@ export default function Gallery({
                   />
                 </div>
               ) : (
-                <div className="aspect-[21/9] rounded-xl bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
+                <div className="aspect-[21/9] bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
               )}
               {g.caption && (
                 <div className="text-center">
@@ -112,7 +112,7 @@ export default function Gallery({
         return (
           <div key={i} className="space-y-4">
             {g.url || g.beforeUrl ? (
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
                   src={g.url || g.beforeUrl!}
                   alt={g.alt || g.caption || `Gallery image ${i + 1}`}
@@ -123,7 +123,7 @@ export default function Gallery({
                 />
               </div>
             ) : (
-              <div className="aspect-[4/3] rounded-xl bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
+              <div className="aspect-[4/3] bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)]" />
             )}
             {g.caption && (
               <div className="text-center">
