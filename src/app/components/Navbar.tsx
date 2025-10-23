@@ -27,7 +27,7 @@ export default function Navbar() {
             className="heading-md font-alef flex items-center transition-all gap-2 hover:text-accent duration-300 hover:scale-105"
           >
             <Image src="/logo.png" alt="Iztrubal logo" width={50} height={50} />
-            <span style={{ color: "#a96360" }}>{t("nav.logo") as string}</span>
+            <span className="studio-name">{t("nav.logo") as string}</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {linkDefs.map((link) => {
