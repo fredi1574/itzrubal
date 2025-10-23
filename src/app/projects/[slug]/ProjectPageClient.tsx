@@ -86,7 +86,7 @@ export default function ProjectPageClient({ project }: Props) {
                   </div>
 
                   {/* Quick Project Info */}
-                  <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 border border-white/20">
+                  <div className=" p-4 sm:p-6 border bg-background/20 border-white/20">
                     <h3 className="text-lg font-semibold text-white mb-4">
                       {t("projects.projectDetails") as string}
                     </h3>
