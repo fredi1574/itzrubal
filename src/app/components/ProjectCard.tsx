@@ -23,7 +23,7 @@ export default function ProjectCard({
       href={`/projects/${slug}`}
       className="group block transition-all duration-300 hover:scale-[1.03]"
     >
-      <div className="aspect-square overflow-hidden bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)] relative">
+      <div className="aspect-square overflow-hidden relative">
         {coverUrl ? (
           <Image
             src={coverUrl}
