@@ -148,19 +148,31 @@ export default function ProjectPageClient({ project }: Props) {
       </div>
 
       {/* Back Navigation */}
-      <div className="px-4 sm:px-6 lg:px-8 py-6">
+      <div className="px-4 sm:px-6 lg:px-8 pt-6 pb-0">
         <div className="max-w-6xl mx-auto">
           <ButtonLink
             href="/projects"
             variant="ghost"
-            className="inline-flex items-center gap-2 text-sm hover:bg-gray-50"
+            className={`
+              group inline-flex items-center gap-2
+              px-4 py-2 bg-background/80 border border-accent/30
+              text-caption text-accent font-medium
+              shadow-sm hover:bg-accent/10 transition-all duration-200
+              backdrop-blur-sm
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2
+            `}
+            style={{ boxShadow: "0 2px 8px 0 rgba(169,99,96,0.1)" }}
           >
+            <span className="font-playfair tracking-wide uppercase">
+              {t("projects.backToProjects") as string}
+            </span>
             <svg
-              className="w-4 h-4"
+              className="w-4 h-4 text-accent group-hover:-translate-x-1 transition-transform duration-200"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -169,7 +181,6 @@ export default function ProjectPageClient({ project }: Props) {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            {t("projects.backToProjects") as string}
           </ButtonLink>
         </div>
       </div>
@@ -183,7 +194,7 @@ export default function ProjectPageClient({ project }: Props) {
               {/* Project Highlights - Compact Grid */}
               {getLocalizedHighlights() &&
                 getLocalizedHighlights()!.length > 0 && (
-                  <div className="card p-4 sm:p-6">
+                  <div className="bg-transparent p-4 sm:p-6 border border-accent/20">
                     <h3 className="text-lg font-semibold mb-4">
                       {t("projects.keyHighlights") as string}
                     </h3>
@@ -204,7 +215,7 @@ export default function ProjectPageClient({ project }: Props) {
 
               {/* Challenges - Compact */}
               {getLocalizedChallenges() && (
-                <div className="card p-4 sm:p-6">
+                <div className="bg-transparent p-4 sm:p-6 border border-accent/20">
                   <h3 className="text-lg font-semibold mb-4">
                     {t("projects.designChallenges") as string}
                   </h3>
@@ -220,7 +231,7 @@ export default function ProjectPageClient({ project }: Props) {
               {/* Materials */}
               {getLocalizedMaterials() &&
                 getLocalizedMaterials()!.length > 0 && (
-                  <div className="card p-4 sm:p-6">
+                  <div className="bg-transparent p-4 sm:p-6 border border-accent/20">
                     <h3 className="text-lg font-semibold mb-4">
                       {t("projects.materialsUsed") as string}
                     </h3>
@@ -239,7 +250,7 @@ export default function ProjectPageClient({ project }: Props) {
 
               {/* Team */}
               {getLocalizedTeam() && getLocalizedTeam()!.length > 0 && (
-                <div className="card p-4 sm:p-6">
+                <div className="bg-transparent p-4 sm:p-6 border border-accent/20">
                   <h3 className="text-lg font-semibold mb-4">
                     {t("projects.projectTeam") as string}
                   </h3>
