@@ -21,7 +21,7 @@ const links = [
 export default function Footer() {
   return (
     <footer className="border-t hairline animate-fade-in">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-foreground/60 hover:text-accent transition-colors duration-300 animate-fade-in-up">
             {new Date().getFullYear()} Hagit Oz ©
