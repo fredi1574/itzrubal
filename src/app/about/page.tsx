@@ -2,9 +2,9 @@ export const metadata = { title: "About" };
 
 export default function About() {
   return (
-    <div className="grid mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-justify mt-10 grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <div className="grid mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-justify mt-10 grid-cols-1 lg:flex lg:justify-start gap-16 lg:gap-8 items-start">
       {/* First column - Image placeholder */}
-      <div className="animate-fade-in-up relative">
+      <div className="animate-fade-in-up relative lg:w-[30%] lg:flex-none">
         <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
             <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
@@ -25,7 +25,7 @@ export default function About() {
       </div>
 
       {/* Second column */}
-      <div className="animate-fade-in-up animate-stagger-1 relative">
+      <div className="animate-fade-in-up animate-stagger-1 relative lg:w-[35%] lg:flex-none min-w-0">
         <div className="prose prose-lg max-w-none space-y-8">
           <p className="text-sm">
             נעים להכיר, אני חגית.
@@ -44,7 +44,7 @@ export default function About() {
           </p>
         </div>
         {/* Divider */}
-        <div className="hidden lg:block absolute top-0 right-0 w-px h-full bg-[#5f6f65]/40 -mr-8"></div>
+        <div className="hidden lg:block absolute top-0 w-px h-full bg-accent/40 -mr-4"></div>
 
         <div className="animate-fade-in-up animate-stagger-2">
           <div className="prose prose-lg max-w-none space-y-8">
