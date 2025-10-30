@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import ImageModal from "./ImageModal";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import { useLocale } from "../lib/LocaleProvider";
+import { getDirection } from "../lib/i18n";
 
 type GalleryItem = {
   beforeUrl?: string;
@@ -33,6 +36,8 @@ export default function ImageCarousel({
     caption?: string;
   } | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const { locale } = useLocale();
+  const isRtl = getDirection(locale) === "rtl";
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % items.length);
@@ -124,72 +129,135 @@ export default function ImageCarousel({
 
   return (
     <div className="relative">
-      {/* Main Image Display */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
-        {itemType === "before-after" ? (
-          <div
-            ref={sliderRef}
-            className="relative h-full cursor-col-resize select-none"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+      {/* Main Image + Nav Buttons */}
+      <div className="flex items-center gap-3">
+        {/* Prev Button */}
+        {items.length > 1 && (
+          <button
+            onClick={prevSlide}
+            className="shrink-0 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-colors"
+            aria-label="Previous image"
           >
-            {/* Before Image */}
+            {isRtl ? (
+              <IoChevronForwardOutline className="w-4 h-4" />
+            ) : (
+              <IoChevronBackOutline className="w-4 h-4" />
+            )}
+          </button>
+        )}
+
+        {/* Main Image Display */}
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
+          {itemType === "before-after" ? (
             <div
-              className="absolute inset-0 cursor-pointer"
-              onClick={() =>
-                currentItem.beforeUrl &&
-                openModal(
-                  currentItem.beforeUrl,
-                  currentItem.caption
-                    ? `${currentItem.caption} (before)`
-                    : `Before`,
-                  currentItem.caption
-                )
-              }
+              ref={sliderRef}
+              className="relative h-full cursor-col-resize select-none"
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
-              {currentItem.beforeUrl ? (
-                <Image
-                  src={currentItem.beforeUrl}
-                  alt={
+              {/* Before Image */}
+              <div
+                className="absolute inset-0 cursor-pointer"
+                onClick={() =>
+                  currentItem.beforeUrl &&
+                  openModal(
+                    currentItem.beforeUrl,
                     currentItem.caption
                       ? `${currentItem.caption} (before)`
-                      : `Before`
-                  }
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-200" />
-              )}
-            </div>
+                      : `Before`,
+                    currentItem.caption
+                  )
+                }
+              >
+                {currentItem.beforeUrl ? (
+                  <Image
+                    src={currentItem.beforeUrl}
+                    alt={
+                      currentItem.caption
+                        ? `${currentItem.caption} (before)`
+                        : `Before`
+                    }
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200" />
+                )}
+              </div>
 
-            {/* After Image with clipping */}
+              {/* After Image with clipping */}
+              <div
+                className="absolute inset-0 cursor-pointer"
+                style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+                onClick={() =>
+                  currentItem.afterUrl &&
+                  openModal(
+                    currentItem.afterUrl,
+                    currentItem.caption
+                      ? `${currentItem.caption} (after)`
+                      : `After`,
+                    currentItem.caption
+                  )
+                }
+              >
+                {currentItem.afterUrl ? (
+                  <Image
+                    src={currentItem.afterUrl}
+                    alt={
+                      currentItem.caption
+                        ? `${currentItem.caption} (after)`
+                        : `After`
+                    }
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200" />
+                )}
+              </div>
+
+              {/* Slider Line */}
+              <div
+                className="absolute top-0 bottom-0 w-0.5 bg-accent/40 shadow-lg z-10"
+                style={{ left: `${sliderPosition}%` }}
+              >
+                {/* Slider Handle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-accent rounded-full shadow-lg flex items-center justify-center cursor-col-resize"></div>
+              </div>
+
+              <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
+                {beforeText}
+              </div>
+              <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
+                {afterText}
+              </div>
+            </div>
+          ) : itemType === "panorama" ? (
             <div
-              className="absolute inset-0 cursor-pointer"
-              style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+              className="relative w-full h-full cursor-pointer"
               onClick={() =>
-                currentItem.afterUrl &&
+                (currentItem.url || currentItem.beforeUrl) &&
                 openModal(
-                  currentItem.afterUrl,
-                  currentItem.caption
-                    ? `${currentItem.caption} (after)`
-                    : `After`,
+                  currentItem.url || currentItem.beforeUrl!,
+                  currentItem.alt ||
+                    currentItem.caption ||
+                    `Gallery image ${currentIndex + 1}`,
                   currentItem.caption
                 )
               }
             >
-              {currentItem.afterUrl ? (
+              {currentItem.url || currentItem.beforeUrl ? (
                 <Image
-                  src={currentItem.afterUrl}
+                  src={currentItem.url || currentItem.beforeUrl!}
                   alt={
-                    currentItem.caption
-                      ? `${currentItem.caption} (after)`
-                      : `After`
+                    currentItem.alt ||
+                    currentItem.caption ||
+                    `Gallery image ${currentIndex + 1}`
                   }
                   fill
                   className="object-cover"
@@ -198,132 +266,58 @@ export default function ImageCarousel({
                 <div className="w-full h-full bg-gray-200" />
               )}
             </div>
-
-            {/* Slider Line */}
+          ) : (
             <div
-              className="absolute top-0 bottom-0 w-0.5 bg-accent/40 shadow-lg z-10"
-              style={{ left: `${sliderPosition}%` }}
-            >
-              {/* Slider Handle */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-accent rounded-full shadow-lg flex items-center justify-center cursor-col-resize"></div>
-            </div>
-
-            <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
-              {beforeText}
-            </div>
-            <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded text-sm font-medium pointer-events-none">
-              {afterText}
-            </div>
-          </div>
-        ) : itemType === "panorama" ? (
-          <div
-            className="relative w-full h-full cursor-pointer"
-            onClick={() =>
-              (currentItem.url || currentItem.beforeUrl) &&
-              openModal(
-                currentItem.url || currentItem.beforeUrl!,
-                currentItem.alt ||
-                  currentItem.caption ||
-                  `Gallery image ${currentIndex + 1}`,
-                currentItem.caption
-              )
-            }
-          >
-            {currentItem.url || currentItem.beforeUrl ? (
-              <Image
-                src={currentItem.url || currentItem.beforeUrl!}
-                alt={
+              className="relative w-full h-full cursor-pointer"
+              onClick={() =>
+                (currentItem.url || currentItem.beforeUrl) &&
+                openModal(
+                  currentItem.url || currentItem.beforeUrl!,
                   currentItem.alt ||
-                  currentItem.caption ||
-                  `Gallery image ${currentIndex + 1}`
-                }
-                fill
-                className="object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-gray-200" />
-            )}
-          </div>
-        ) : (
-          <div
-            className="relative w-full h-full cursor-pointer"
-            onClick={() =>
-              (currentItem.url || currentItem.beforeUrl) &&
-              openModal(
-                currentItem.url || currentItem.beforeUrl!,
-                currentItem.alt ||
-                  currentItem.caption ||
-                  `Gallery image ${currentIndex + 1}`,
-                currentItem.caption
-              )
-            }
+                    currentItem.caption ||
+                    `Gallery image ${currentIndex + 1}`,
+                  currentItem.caption
+                )
+              }
+            >
+              {currentItem.url || currentItem.beforeUrl ? (
+                <Image
+                  src={currentItem.url || currentItem.beforeUrl!}
+                  alt={
+                    currentItem.alt ||
+                    currentItem.caption ||
+                    `Gallery image ${currentIndex + 1}`
+                  }
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-gray-200" />
+              )}
+            </div>
+          )}
+
+          {/* Image Counter */}
+          {items.length > 1 && (
+            <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs z-20">
+              {currentIndex + 1} / {items.length}
+            </div>
+          )}
+        </div>
+
+        {/* Next Button */}
+        {items.length > 1 && (
+          <button
+            onClick={nextSlide}
+            className="shrink-0 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-colors"
+            aria-label="Next image"
           >
-            {currentItem.url || currentItem.beforeUrl ? (
-              <Image
-                src={currentItem.url || currentItem.beforeUrl!}
-                alt={
-                  currentItem.alt ||
-                  currentItem.caption ||
-                  `Gallery image ${currentIndex + 1}`
-                }
-                fill
-                className="object-cover"
-              />
+            {isRtl ? (
+              <IoChevronBackOutline className="w-4 h-4" />
             ) : (
-              <div className="w-full h-full bg-gray-200" />
+              <IoChevronForwardOutline className="w-4 h-4" />
             )}
-          </div>
-        )}
-
-        {/* Navigation Arrows */}
-        {items.length > 1 && (
-          <>
-            <button
-              onClick={prevSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-20"
-              aria-label="Previous image"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-20"
-              aria-label="Next image"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </>
-        )}
-
-        {/* Image Counter */}
-        {items.length > 1 && (
-          <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs z-20">
-            {currentIndex + 1} / {items.length}
-          </div>
+          </button>
         )}
       </div>
 
