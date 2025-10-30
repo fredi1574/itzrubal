@@ -99,9 +99,9 @@ export default function ContactPage() {
             <input
               name="name"
               value={name}
-              placeholder="שם"
+              placeholder={t("contact.form.namePlaceholder") as string}
               onChange={(e) => setName(e.target.value)}
-              className="h-12 bg-white border-1 px-4 text-body outline-none focus:outline-none focus-visible:outline-none"
+              className="h-12 bg-white border-1 px-4 text-body"
               required
               disabled={status === "submitting"}
             />
@@ -112,9 +112,9 @@ export default function ContactPage() {
               name="email"
               type="email"
               value={email}
-              placeholder="אימייל"
+              placeholder={t("contact.form.emailPlaceholder") as string}
               onChange={(e) => setEmail(e.target.value)}
-              className="h-12 bg-white border-1 px-4 text-body outline-none focus:outline-none focus-visible:outline-none"
+              className="h-12 bg-white border-1 px-4 text-body"
               required
               disabled={status === "submitting"}
             />
@@ -124,9 +124,9 @@ export default function ContactPage() {
             <textarea
               name="message"
               value={message}
-              placeholder="הודעה"
+              placeholder={t("contact.form.messagePlaceholder") as string}
               onChange={(e) => setMessage(e.target.value)}
-              className="min-h-32 px-4 py-3 text-body border-1 focus:border-accent/30 focus:ring-2 focus:ring-accent/10 resize-none outline-none focus:outline-none focus-visible:outline-none"
+              className="min-h-32 px-4 py-3 text-body border-1 resize-none"
               required
               disabled={status === "submitting"}
             />

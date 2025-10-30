@@ -262,6 +262,14 @@ html {
   outline-offset: 2px;
 }
 
+/* Remove outline for native form controls */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
 /* Selection styles */
 ::selection {
   background-color: color-mix(in oklab, var(--accent) 30%, transparent);
