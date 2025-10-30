@@ -270,12 +270,6 @@ select:focus-visible {
   outline-offset: 0;
 }
 
-/* Selection styles */
-::selection {
-  background-color: color-mix(in oklab, var(--accent) 30%, transparent);
-  color: var(--foreground);
-}
-
 /* Loading animation */
 @keyframes shimmer {
   0% {
