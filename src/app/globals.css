@@ -372,21 +372,6 @@ html {
   letter-spacing: 0.01em;
 }
 
-/* Body Text Styles */
-.text-body {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-.text-body-lg {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
 .text-caption {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   font-size: 0.875rem;

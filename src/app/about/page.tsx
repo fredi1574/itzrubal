@@ -27,11 +27,7 @@ export default function About() {
       {/* Second column */}
       <div className="animate-fade-in-up animate-stagger-1 relative">
         <div className="prose prose-lg max-w-none space-y-8">
-          {/* <p className="text-body leading-relaxed text-xl">
-            נעים להכיר, אני חגית
-          </p> */}
-
-          <p className="text-body leading-relaxed text-xl">
+          <p className="text-sm">
             נעים להכיר, אני חגית.
             <br /> עיצוב פנים עבורי הוא לא רק מקצוע, אלא הדרך בה אני רואה את
             העולם. כמו שמוזיקאי שומע צלילים, אני רואה חללים – והם מספרים לי
@@ -39,7 +35,7 @@ export default function About() {
             בפוטנציאל ומחכה להתגלות.
           </p>
 
-          <p className="text-body leading-relaxed text-xl">
+          <p className="text-sm leading-relaxed">
             המסע שלי לעיצוב התחיל מתוך הרצון לשלב בין עולמות: מצד אחד יש לי תואר
             במתמטיקה ומדעי המחשב ותואר שני במנהל עסקים מה שמקנה לי את הכלים לגשת
             לפרויקטים בצורה מסודרת, עם ראייה מערכתית ומיקוד. מצד שני, הלב שלי
@@ -54,14 +50,14 @@ export default function About() {
       {/* Third column */}
       <div className="animate-fade-in-up animate-stagger-2">
         <div className="prose prose-lg max-w-none space-y-8">
-          <p className="text-body leading-relaxed text-xl">
+          <p className="leading-relaxed text-sm">
             הסטודיו שלי, <span className="studio-name">אִצְטְרוּבָּל</span>,
             נולד מתוך אהבה גדולה ליצור מרחבים שנוגעים בנפש, לא רק בעיניים. כל
             פרויקט שאני לוקחת על עצמי הוא הזדמנות להקשיב, להבין ולהרגיש יחד עם
             הלקוחות שלי איך אפשר להפוך כל מקום לבית אמיתי.
           </p>
 
-          <p className="text-body leading-relaxed text-xl">
+          <p className="leading-relaxed text-sm">
             אני לא רק מעצבת חללים – אני יוצרת חוויות, תחושות, רגעים. אני מאמינה
             שעיצוב טוב הוא כזה שמרגיש נכון, נינוח ומעורר השראה – כזה שמלווה את
             האנשים שנמצאים בו בכל יום מחדש.
