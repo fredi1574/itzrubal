@@ -96,43 +96,37 @@ export default function ContactPage() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up"
         >
           <label className="grid gap-3 group">
-            <span className="text-caption font-medium text-foreground/80 group-focus-within:text-accent transition-colors">
-              {t("contact.form.nameLabel") as string}
-            </span>
             <input
               name="name"
               value={name}
+              placeholder="שם"
               onChange={(e) => setName(e.target.value)}
-              className="h-12 bg-white border-1 px-4 text-body focus:border-accent/30 focus:ring-2 focus:ring-accent/10"
+              className="h-12 bg-white border-1 px-4 text-body outline-none focus:outline-none focus-visible:outline-none"
               required
               disabled={status === "submitting"}
             />
           </label>
 
           <label className="grid gap-3 group">
-            <span className="text-caption font-medium text-foreground/80 group-focus-within:text-accent transition-colors">
-              {t("contact.form.emailLabel") as string}
-            </span>
             <input
               name="email"
               type="email"
               value={email}
+              placeholder="אימייל"
               onChange={(e) => setEmail(e.target.value)}
-              className="h-12 bg-white border-1 px-4 text-body focus:border-accent/30 focus:ring-2 focus:ring-accent/10"
+              className="h-12 bg-white border-1 px-4 text-body outline-none focus:outline-none focus-visible:outline-none"
               required
               disabled={status === "submitting"}
             />
           </label>
 
           <label className="sm:col-span-2 grid gap-3 group">
-            <span className="text-caption font-medium text-foreground/80 group-focus-within:text-accent transition-colors">
-              {t("contact.form.messageLabel") as string}
-            </span>
             <textarea
               name="message"
               value={message}
+              placeholder="הודעה"
               onChange={(e) => setMessage(e.target.value)}
-              className="min-h-32 px-4 py-3 text-body border-1 focus:border-accent/30 focus:ring-2 focus:ring-accent/10 resize-none"
+              className="min-h-32 px-4 py-3 text-body border-1 focus:border-accent/30 focus:ring-2 focus:ring-accent/10 resize-none outline-none focus:outline-none focus-visible:outline-none"
               required
               disabled={status === "submitting"}
             />
