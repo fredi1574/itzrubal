@@ -1,4 +1,5 @@
 export const metadata = { title: "About" };
+import { HiUser } from "react-icons/hi";
 
 export default function About() {
   return (
@@ -8,17 +9,7 @@ export default function About() {
         <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
             <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-              <svg
-                className="w-8 h-8 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <HiUser className="w-8 h-8 text-gray-400" />
             </div>
           </div>
         </div>

@@ -166,21 +166,7 @@ export default function ProjectPageClient({ project }: Props) {
             <span className="font-playfair tracking-wide uppercase">
               {t("projects.backToProjects") as string}
             </span>
-            <svg
-              className="w-4 h-4 text-accent group-hover:-translate-x-1 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+            <IoChevronBackOutline className="w-4 h-4 text-accent group-hover:-translate-x-1 transition-transform duration-200" />
           </ButtonLink>
         </div>
       </div>
