@@ -2,7 +2,7 @@ export const metadata = { title: "About" };
 
 export default function About() {
   return (
-    <div className="grid mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-justify mt-10 grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+    <div className="grid mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-justify mt-10 grid-cols-1 lg:grid-cols-2 gap-16 items-start">
       {/* First column - Image placeholder */}
       <div className="animate-fade-in-up relative">
         <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
@@ -30,9 +30,9 @@ export default function About() {
           <p className="text-sm">
             נעים להכיר, אני חגית.
             <br /> עיצוב פנים עבורי הוא לא רק מקצוע, אלא הדרך בה אני רואה את
-            העולם. כמו שמוזיקאי שומע צלילים, אני רואה חללים – והם מספרים לי
-            סיפור. אני מחפשת את ההרמוניה בין צבע, חומר ואור, את מה שנמצא שם
-            בפוטנציאל ומחכה להתגלות.
+            העולם. כמו שמוזיקאי שומע צלילים, אני רואה חללים והם מספרים לי סיפור.
+            אני מחפשת את ההרמוניה בין צבע, חומר ואור, את מה שנמצא שם בפוטנציאל
+            ומחכה להתגלות.
           </p>
 
           <p className="text-sm leading-relaxed">
@@ -45,23 +45,22 @@ export default function About() {
         </div>
         {/* Divider */}
         <div className="hidden lg:block absolute top-0 right-0 w-px h-full bg-[#5f6f65]/40 -mr-8"></div>
-      </div>
 
-      {/* Third column */}
-      <div className="animate-fade-in-up animate-stagger-2">
-        <div className="prose prose-lg max-w-none space-y-8">
-          <p className="leading-relaxed text-sm">
-            הסטודיו שלי, <span className="studio-name">אִצְטְרוּבָּל</span>,
-            נולד מתוך אהבה גדולה ליצור מרחבים שנוגעים בנפש, לא רק בעיניים. כל
-            פרויקט שאני לוקחת על עצמי הוא הזדמנות להקשיב, להבין ולהרגיש יחד עם
-            הלקוחות שלי איך אפשר להפוך כל מקום לבית אמיתי.
-          </p>
+        <div className="animate-fade-in-up animate-stagger-2">
+          <div className="prose prose-lg max-w-none space-y-8">
+            <p className="leading-relaxed text-sm">
+              הסטודיו שלי, <span className="studio-name">אִצְטְרוּבָּל</span>,
+              נולד מתוך אהבה גדולה ליצור מרחבים שנוגעים בנפש, לא רק בעיניים. כל
+              פרויקט שאני לוקחת על עצמי הוא הזדמנות להקשיב, להבין ולהרגיש יחד עם
+              הלקוחות שלי איך אפשר להפוך כל מקום לבית אמיתי.
+            </p>
 
-          <p className="leading-relaxed text-sm">
-            אני לא רק מעצבת חללים – אני יוצרת חוויות, תחושות, רגעים. אני מאמינה
-            שעיצוב טוב הוא כזה שמרגיש נכון, נינוח ומעורר השראה – כזה שמלווה את
-            האנשים שנמצאים בו בכל יום מחדש.
-          </p>
+            <p className="leading-relaxed text-sm">
+              אני לא רק מעצבת חללים - אני יוצרת חוויות, תחושות, רגעים. אני
+              מאמינה שעיצוב טוב הוא כזה שמרגיש נכון, נינוח ומעורר השראה, כזה
+              שמלווה את האנשים שנמצאים בו בכל יום מחדש.
+            </p>
+          </div>
         </div>
       </div>
     </div>
