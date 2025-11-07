@@ -73,9 +73,9 @@ export default async function RootLayout({
           <Image
             src="/background.svg"
             alt="Background"
-            width={400}
-            height={400}
-            className="opacity-20"
+            width={300}
+            height={300}
+            className="opacity-10"
           />
         </div>
         <div
@@ -90,7 +90,7 @@ export default async function RootLayout({
             alt="Background"
             width={400}
             height={400}
-            className="opacity-20"
+            className="opacity-10"
           />
         </div>
         <LocaleProvider initialLocale={initialLocale}>
