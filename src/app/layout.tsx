@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { cookies } from "next/headers";
 import { LocaleProvider } from "./lib/LocaleProvider";
 import { getDirection, getSafeLocale } from "./lib/i18n";
+import Image from "next/image";
 
 // Clean sans-serif for body text
 const inter = Inter({
@@ -62,9 +63,39 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} ${alef.variable} antialiased min-h-screen flex flex-col`}
       >
+        <div
+          className="fixed top-20 left-0 z-0 pointer-events-none"
+          style={{
+            transform: "rotate(-15deg)",
+            transformOrigin: "left",
+          }}
+        >
+          <Image
+            src="/background.svg"
+            alt="Background"
+            width={400}
+            height={400}
+            className="opacity-20"
+          />
+        </div>
+        <div
+          className="fixed bottom-0 right-0 z-0 pointer-events-none"
+          style={{
+            transform: "rotate(15deg)",
+            transformOrigin: "right",
+          }}
+        >
+          <Image
+            src="/background.svg"
+            alt="Background"
+            width={400}
+            height={400}
+            className="opacity-20"
+          />
+        </div>
         <LocaleProvider initialLocale={initialLocale}>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 relative z-10">{children}</main>
           <Footer />
         </LocaleProvider>
       </body>
