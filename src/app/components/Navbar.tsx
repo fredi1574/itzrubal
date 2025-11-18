@@ -1,5 +1,6 @@
 "use client";
 
+import type { JSX } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,7 +15,7 @@ const linkDefs = [
   { href: "/contact", key: "nav.contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar(): JSX.Element {
   const pathname = usePathname();
   const { t } = useLocale();
 
@@ -36,7 +37,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-caption transition-all duration-300 hover:scale-105 animate-fade-in-up ${
+                  className={`site-nav-link text-caption transition-all duration-300 hover:scale-105 animate-fade-in-up ${
                     active
                       ? "text-accent font-medium"
                       : "text-foreground/60 hover:text-accent"

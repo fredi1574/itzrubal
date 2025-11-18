@@ -1,59 +1,180 @@
+import type { JSX } from "react";
+
 export const metadata = { title: "About" };
-import { HiUser } from "react-icons/hi";
 
-export default function About() {
-  return (
-    <div className="grid mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-justify mt-10 grid-cols-1 lg:flex lg:justify-start gap-16 lg:gap-8 items-start">
-      {/* First column - Image placeholder */}
-      <div className="animate-fade-in-up relative lg:w-[30%] lg:flex-none">
-        <div className="relative w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-            <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-              <HiUser className="w-8 h-8 text-gray-400" />
-            </div>
-          </div>
-        </div>
+const introLines = [
+  "עבורי, עיצוב פנים הוא לא רק מקצוע – זו הדרך שבה אני מתבוננת על העולם.",
+  "כמו שמוזיקאי שומע צלילים, אני רואה חללים – מחפשת את ההרמוניה,",
+  "את מה שנמצא שם בפוטנציאל ומחכה להתגלות.",
+] as const;
+
+const storyParagraphs = [
+  "אני בעלת תואר ראשון במתמטיקה ומדעי המחשב ותואר שני במנהל עסקים – שני עולמות שדורשים חשיבה אנליטית, ראייה מערכתית, סדר ויכולת להתמקד במטרה. הרקע הזה בנה אצלי חשיבה לוגית, דיוק ואהבה לפתרון בעיות מורכבות.",
+  "אבל הלב תמיד חיפש דרך להביא לידי ביטוי גם יצירתיות ורגש. רציתי שהעשייה שלי תהיה משמעותית ושתביא ערך אמיתי לעולם, לא רק לייצר תוצרים אלא גם לגעת באנשים ולשפר את איכות חייהם.",
+] as const;
+
+const storyJourney = [
+  "ההכרות שלי עם עולם העיצוב החלה בקורס הום סטיילינג. זו הייתה עבורי חוויה מכוננת – גיליתי כמה עיצוב משפיע על התחושה הפנימית, ואיך דרך הבנה עמוקה של צרכים ואורח חיים אפשר לייצר תחושת בית אמיתית.",
+  "לכן החלטתי להמשיך ולהרחיב את הכלים המקצועיים שלי ונרשמתי ללימודי עיצוב פנים. מהר מאוד הבנתי שזה הרבה מעבר לשינוי של צבע או רהיט – זהו תהליך אישי, שמבקש להבין מה באמת עושה טוב לאנשים כשהם חוזרים הביתה.",
+] as const;
+
+const approachParagraphs = [
+  "כשאני עובדת, אני לא מתמקדת רק בקירות, מידות וצבעים – אני מקשיבה לאנשים שיחיו שם, לדרך שבה הם חווים את הבית. אני משלבת חשיבה שיטתית עם אינטואיציה, יצירתיות עם סדר, כדי ליצור מרחב שמרגיש נכון, נינוח ומעורר השראה.",
+] as const;
+
+const pineconeParagraphs = [
+  "האִצְטְרֻבָּל, סמל טבעי ואורגני, מגלם בתוכו חיבור עמוק לטבע ולסביבה.",
+  "מעבר ליופיו הפשוט לכאורה, מסתתר בו סדר מתמטי מרהיב – מבנהו מבוסס על יחס הזהב, מה שמעיד על הרמוניה, פרופורציות מדויקות ואסתטיקה על-זמנית, שמופיעים בעולם עיצוב הפנים.",
+  "על אף שכל אִצְטְרֻבָּל נראה דומה, אין שניים זהים – ממש כמו כל פרויקט עיצוב אישי שמותאם בקפידה לצרכיו הייחודיים של הלקוח.",
+  'האִצְטְרֻבָּל מזוהה בתרבויות רבות עם בלוטת האִצְטְרֻבָּל – אותה "עין שלישית" סמלית, המייצגת תודעה גבוהה, אינטואיציה וחיבור לרוח.',
+] as const;
+
+const values = [
+  {
+    icon: "🎯",
+    title: "חשיבה מערכתית",
+    description: "ראייה רחבה של כל המרכיבים – מהתכנון הראשוני ועד הפרט האחרון.",
+  },
+  {
+    icon: "💫",
+    title: "יצירתיות ורגש",
+    description: "שילוב של אמנות ואינטואיציה ליצירת חללים שמדברים ללב.",
+  },
+  {
+    icon: "🤝",
+    title: "הקשבה אמיתית",
+    description:
+      "הבנה עמוקה של מי שאתם, איך אתם חיים, ומה גורם לכם להרגיש בבית.",
+  },
+] as const;
+
+/**
+ * Renders the about page with hero, story, values and CTA sections.
+ * @returns {JSX.Element} Full about experience in Hebrew RTL layout.
+ */
+const AboutPage = (): JSX.Element => (
+  <div className="about-page" dir="rtl" lang="he">
+    <HeroSection />
+    <section className="about-content">
+      <IntroText />
+      <ImageSection />
+      <StorySection />
+      <ApproachSection />
+    </section>
+    <PineconeSection />
+    <ValuesSection />
+    <ClosingSection />
+    <CtaSection />
+  </div>
+);
+
+const HeroSection = (): JSX.Element => (
+  <section className="about-hero">
+    <h1 className="about-hero-title">נעים להכיר</h1>
+    <p className="about-hero-subtitle">הסיפור מאחורי איצטרובל</p>
+  </section>
+);
+
+const IntroText = (): JSX.Element => (
+  <p className="about-intro-text">
+    {introLines.map((line, index) => (
+      <span key={line}>
+        {line}
+        {index < introLines.length - 1 && <br />}
+      </span>
+    ))}
+  </p>
+);
+
+const ImageSection = (): JSX.Element => (
+  <div className="about-image">[תמונה של המעצבת]</div>
+);
+
+const StorySection = (): JSX.Element => (
+  <section className="about-section">
+    <h2 className="about-section-title">המסע שלי</h2>
+    {storyParagraphs.map((text) => (
+      <p className="about-section-paragraph" key={text}>
+        {text}
+      </p>
+    ))}
+    <p className="about-highlight">ומכאן זה התחיל...</p>
+    {storyJourney.map((text) => (
+      <p className="about-section-paragraph" key={text}>
+        {text}
+      </p>
+    ))}
+  </section>
+);
+
+const ApproachSection = (): JSX.Element => (
+  <section className="about-section">
+    <h2 className="about-section-title">הגישה שלי</h2>
+    {approachParagraphs.map((text) => (
+      <p className="about-section-paragraph" key={text}>
+        {text}
+      </p>
+    ))}
+    <p className="about-highlight">
+      בעיניי, עיצוב הוא לא רק איך המקום נראה – אלא איך הוא גורם לנו להרגיש.
+    </p>
+  </section>
+);
+
+const PineconeSection = (): JSX.Element => (
+  <section className="about-pinecone">
+    <h2 className="about-pinecone-title">אִצְטְרֻבָּל</h2>
+    <p className="about-pinecone-subtitle">הסמל שמאחורי השם</p>
+    <div className="about-pinecone-content">
+      <div aria-hidden="true" className="about-pinecone-image">
+        🌲
       </div>
-
-      {/* Second column */}
-      <div className="animate-fade-in-up animate-stagger-1 relative lg:w-[35%] lg:flex-none min-w-0">
-        <div className="prose prose-lg max-w-none space-y-8">
-          <p className="text-sm">
-            נעים להכיר, אני חגית.
-            <br /> עיצוב פנים עבורי הוא לא רק מקצוע, אלא הדרך בה אני רואה את
-            העולם. כמו שמוזיקאי שומע צלילים, אני רואה חללים והם מספרים לי סיפור.
-            אני מחפשת את ההרמוניה בין צבע, חומר ואור, את מה שנמצא שם בפוטנציאל
-            ומחכה להתגלות.
-          </p>
-
-          <p className="text-sm leading-relaxed">
-            המסע שלי לעיצוב התחיל מתוך הרצון לשלב בין עולמות: מצד אחד יש לי תואר
-            במתמטיקה ומדעי המחשב ותואר שני במנהל עסקים מה שמקנה לי את הכלים לגשת
-            לפרויקטים בצורה מסודרת, עם ראייה מערכתית ומיקוד. מצד שני, הלב שלי
-            תמיד חיפש את הדרך לבטא יצירתיות ורגש והעיצוב זו הדרך המושלמת בשבילי
-            למציאת האיזון הזה.
-          </p>
-        </div>
-        {/* Divider */}
-        <div className="hidden lg:block absolute top-0 w-px h-full bg-accent/40 -mr-4"></div>
-
-        <div className="animate-fade-in-up animate-stagger-2">
-          <div className="prose prose-lg max-w-none space-y-8">
-            <p className="leading-relaxed text-sm">
-              הסטודיו שלי, <span className="studio-name">אִצְטְרוּבָּל</span>,
-              נולד מתוך אהבה גדולה ליצור מרחבים שנוגעים בנפש, לא רק בעיניים. כל
-              פרויקט שאני לוקחת על עצמי הוא הזדמנות להקשיב, להבין ולהרגיש יחד עם
-              הלקוחות שלי איך אפשר להפוך כל מקום לבית אמיתי.
-            </p>
-
-            <p className="leading-relaxed text-sm">
-              אני לא רק מעצבת חללים - אני יוצרת חוויות, תחושות, רגעים. אני
-              מאמינה שעיצוב טוב הוא כזה שמרגיש נכון, נינוח ומעורר השראה, כזה
-              שמלווה את האנשים שנמצאים בו בכל יום מחדש.
-            </p>
-          </div>
-        </div>
+      <div className="about-pinecone-text">
+        {pineconeParagraphs.map((text) => (
+          <p key={text}>{text}</p>
+        ))}
       </div>
     </div>
-  );
-}
+  </section>
+);
+
+const ValuesSection = (): JSX.Element => (
+  <section className="about-values">
+    <h2 className="about-values-title">הערכים שמנחים אותי</h2>
+    <div className="about-values-grid">
+      {values.map((value) => (
+        <article className="about-value-card" key={value.title}>
+          <div className="about-value-icon" aria-hidden="true">
+            {value.icon}
+          </div>
+          <h3 className="about-value-title">{value.title}</h3>
+          <p className="about-value-description">{value.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+);
+
+const ClosingSection = (): JSX.Element => (
+  <section className="about-closing">
+    <h2 className="about-closing-title">נעים להכיר</h2>
+    <p className="about-closing-text">
+      אני מזמינה אתכם למסע משותף – מסע שבו נבין יחד מה באמת חשוב לכם, נחלום על
+      האפשרויות, וניצור את הבית שמשקף את מי שאתם באמת.
+    </p>
+  </section>
+);
+
+const CtaSection = (): JSX.Element => (
+  <section className="about-cta" id="contact">
+    <h2 className="about-cta-title">בואו נתחיל את המסע שלכם</h2>
+    <p className="about-cta-text">
+      אשמח לשמוע על הבית שלכם ולגלות יחד את הפוטנציאל שמחכה בו
+    </p>
+    <a className="about-cta-button" href="mailto:contact@itztrubel.co.il">
+      צרו קשר
+    </a>
+  </section>
+);
+
+export default AboutPage;
