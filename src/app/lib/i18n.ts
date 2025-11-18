@@ -203,7 +203,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       servicesCards: [
         { title: "מגורים", body: "שיפוצים, בנייה חדשה והלבשת בתים." },
         { title: "מסחר", body: "בוטיקים, בתי קפה וסטודיואים יצירתיים." },
-        { title: "סטיילינג", body: "סטיילינג לצילום והום־סטייג'ינג." },
       ],
       testimonialsTitle: "מילים חמות",
       testimonialsSubtitle: "המלצות מלקוחות.",
