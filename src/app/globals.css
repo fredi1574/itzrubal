@@ -44,7 +44,6 @@ body {
 .projects-page {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #2c2c2c;
-  background: #fafaf8;
 }
 
 .card {
@@ -1326,10 +1325,9 @@ footer {
 }
 
 .projects-hero {
-  margin-top: 6rem;
   padding: 5rem 5%;
   text-align: center;
-  background: linear-gradient(to bottom, #f5f3f0 0%, #fafaf8 100%);
+  background: transparent;
   color: #2c2c2c;
 }
 

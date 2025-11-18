@@ -49,10 +49,6 @@ async function getProjects(): Promise<ProjectSummary[]> {
   }
 }
 
-/**
- * Renders the projects page with hero, info banner, portfolio grid and CTA.
- * @returns {JSX.Element} Portfolio landing page in Hebrew RTL layout.
- */
 const PortfolioPage = async (): Promise<JSX.Element> => {
   const projects = await getProjects();
   return (
@@ -67,10 +63,6 @@ const PortfolioPage = async (): Promise<JSX.Element> => {
   );
 };
 
-/**
- * Displays the hero header for the portfolio page.
- * @returns {JSX.Element} Hero section with title and subtitle.
- */
 const HeroSection = (): JSX.Element => (
   <section className="projects-hero">
     <h1 className="projects-hero-title">תיק עבודות</h1>
@@ -80,10 +72,6 @@ const HeroSection = (): JSX.Element => (
   </section>
 );
 
-/**
- * Highlights the portfolio philosophy and CTA.
- * @returns {JSX.Element} Informational banner with button.
- */
 const InfoBanner = (): JSX.Element => (
   <div className="projects-info">
     <h2 className="projects-info-title">איכות על פני כמות</h2>
@@ -102,18 +90,17 @@ type PortfolioGridProps = {
   projects: ProjectSummary[];
 };
 
-/**
- * Renders the grid of live and coming-soon projects.
- * @param {PortfolioGridProps} props Portfolio data lists.
- * @returns {JSX.Element} Grid layout of project cards.
- */
 const PortfolioGrid = ({ projects }: PortfolioGridProps): JSX.Element => (
   <div className="projects-grid">
     {projects.map((project) => (
       <ProjectCard key={project.slug} project={project} />
     ))}
     {comingSoonProjects.map((item) => (
-      <ComingSoonCard key={item.description} description={item.description} title={item.title} />
+      <ComingSoonCard
+        key={item.description}
+        description={item.description}
+        title={item.title}
+      />
     ))}
   </div>
 );
@@ -122,11 +109,6 @@ type ProjectCardProps = {
   project: ProjectSummary;
 };
 
-/**
- * Displays a single project entry linking to the detailed page.
- * @param {ProjectCardProps} props Project summary object.
- * @returns {JSX.Element} Clickable project showcase card.
- */
 const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => (
   <Link className="projects-card" href={`/projects/${project.slug}`}>
     <div
@@ -155,7 +137,10 @@ type ComingSoonCardProps = {
   description: string;
 };
 
-const ComingSoonCard = ({ title, description }: ComingSoonCardProps): JSX.Element => (
+const ComingSoonCard = ({
+  title,
+  description,
+}: ComingSoonCardProps): JSX.Element => (
   <div className="projects-card projects-coming-soon">
     <div className="projects-coming-soon-icon" aria-hidden="true">
       ⏳
@@ -165,10 +150,6 @@ const ComingSoonCard = ({ title, description }: ComingSoonCardProps): JSX.Elemen
   </div>
 );
 
-/**
- * Displays the final call-to-action section.
- * @returns {JSX.Element} CTA block with contact link.
- */
 const CtaSection = (): JSX.Element => (
   <section className="projects-cta">
     <h2 className="projects-cta-title">הפרויקט הבא יכול להיות שלכם</h2>
