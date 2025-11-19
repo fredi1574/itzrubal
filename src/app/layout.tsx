@@ -63,7 +63,7 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} ${alef.variable} antialiased min-h-screen flex flex-col`}
       >
-        <div
+        {/* <div
           className="fixed top-20 left-0 z-0 pointer-events-none"
           style={{
             transform: "rotate(-15deg)",
@@ -92,7 +92,7 @@ export default async function RootLayout({
             height={400}
             className="opacity-10"
           />
-        </div>
+        </div> */}
         <LocaleProvider initialLocale={initialLocale}>
           <Navbar />
           <main className="flex-1 relative z-10">{children}</main>
