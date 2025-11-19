@@ -116,7 +116,7 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => (
       style={
         project.coverUrl
           ? {
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url(${project.coverUrl})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(${project.coverUrl})`,
             }
           : undefined
       }

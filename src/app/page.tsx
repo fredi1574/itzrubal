@@ -40,10 +40,6 @@ const HomePage = (): JSX.Element => (
   </div>
 );
 
-/**
- * Displays the immersive hero area with call-to-action.
- * @returns {JSX.Element} Hero section content.
- */
 const HeroSection = (): JSX.Element => (
   <section className="home-hero" id="home">
     <div className="home-hero-content">
@@ -61,18 +57,10 @@ const HeroSection = (): JSX.Element => (
   </section>
 );
 
-/**
- * Decorative element indicating scroll action.
- * @returns {JSX.Element} Scroll indicator glyph.
- */
 const ScrollIndicator = (): JSX.Element => (
   <div aria-hidden="true" className="home-scroll-indicator" />
 );
 
-/**
- * Introduces the designer and philosophy.
- * @returns {JSX.Element} About section layout.
- */
 const AboutSection = (): JSX.Element => (
   <section className="home-about" id="about">
     <div className="home-about-image">[תמונה של המעצבת או פרויקט מרכזי]</div>
@@ -85,10 +73,6 @@ const AboutSection = (): JSX.Element => (
   </section>
 );
 
-/**
- * Shares the core studio values.
- * @returns {JSX.Element} Philosophy grid view.
- */
 const PhilosophySection = (): JSX.Element => (
   <section className="home-philosophy">
     <div className="home-philosophy-content">
@@ -105,10 +89,6 @@ const PhilosophySection = (): JSX.Element => (
   </section>
 );
 
-/**
- * Highlights select projects.
- * @returns {JSX.Element} Portfolio preview cards.
- */
 const PortfolioSection = (): JSX.Element => (
   <section className="home-portfolio" id="portfolio">
     <h2>פרויקטים נבחרים</h2>
@@ -122,10 +102,6 @@ const PortfolioSection = (): JSX.Element => (
   </section>
 );
 
-/**
- * Provides the contact call-to-action strip.
- * @returns {JSX.Element} CTA section with email link.
- */
 const CallToActionSection = (): JSX.Element => (
   <section className="home-cta" id="contact">
     <h2>מוכנים להתחיל?</h2>
