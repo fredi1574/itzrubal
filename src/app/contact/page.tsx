@@ -99,11 +99,11 @@ export default function ContactPage() {
   return (
     <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
       <div className="max-w-6xl mx-auto px-4 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div className="w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2 lg:gap-4 items-stretch">
+          <div className="w-full flex flex-col">
             <form
               onSubmit={onSubmit}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up flex-1"
             >
               <label className="grid gap-3 group">
                 <input
@@ -167,12 +167,12 @@ export default function ContactPage() {
             </form>
           </div>
 
-          <section className="lg:sticky lg:top-8">
-            <div className="bg-foreground/10 p-8 border border-foreground/10">
-              <h2 className="text-2xl font-medium text-foreground mb-8 text-center">
+          <section className="lg:sticky lg:top-8 flex flex-col">
+            <div className="bg-foreground/10 p-8 border border-foreground/10 h-full flex flex-col w-fit">
+              <h2 className="text-2xl font-medium text-foreground mb-8 text-start">
                 {t("contact.socialTitle") as string}
               </h2>
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 flex-1 justify-center">
                 {socialLinks.map((link) => {
                   const IconComponent = link.icon;
                   return (
@@ -181,15 +181,13 @@ export default function ContactPage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-4 transition-all duration-300 hover:scale-105 group"
+                      className="flex items-center justify-start gap-4 transition-all duration-300 hover:scale-105 group"
                     >
-                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:shadow-lg transition-all flex-shrink-0">
-                        <IconComponent
-                          className="w-8 h-8 text-foreground"
-                          aria-label={t(`contact.social.${link.key}`) as string}
-                        />
-                      </div>
-                      <span className="text-body font-medium text-foreground group-hover:text-accent transition-colors min-w-[100px] text-center">
+                      <IconComponent
+                        className="w-8 h-8 text-foreground"
+                        aria-label={t(`contact.social.${link.key}`) as string}
+                      />
+                      <span className="text-body font-medium text-foreground group-hover:text-accent transition-colors text-start">
                         {t(`contact.social.${link.key}`) as string}
                       </span>
                     </a>
