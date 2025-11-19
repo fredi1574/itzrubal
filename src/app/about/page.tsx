@@ -31,17 +31,14 @@ const pineconeParagraphs = [
 
 const values = [
   {
-    icon: "🎯",
     title: "חשיבה מערכתית",
     description: "ראייה רחבה של כל המרכיבים – מהתכנון הראשוני ועד הפרט האחרון.",
   },
   {
-    icon: "💫",
     title: "יצירתיות ורגש",
     description: "שילוב של אמנות ואינטואיציה ליצירת חללים שמדברים ללב.",
   },
   {
-    icon: "🤝",
     title: "הקשבה אמיתית",
     description:
       "הבנה עמוקה של מי שאתם, איך אתם חיים, ומה גורם לכם להרגיש בבית.",
@@ -144,9 +141,6 @@ const ValuesSection = (): JSX.Element => (
     <div className="about-values-grid">
       {values.map((value) => (
         <article className="about-value-card" key={value.title}>
-          <div className="about-value-icon" aria-hidden="true">
-            {value.icon}
-          </div>
           <h3 className="about-value-title">{value.title}</h3>
           <p className="about-value-description">{value.description}</p>
         </article>
