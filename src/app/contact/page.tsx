@@ -10,19 +10,16 @@ const socialLinks = [
     href: "https://www.instagram.com/hagit_int_design/",
     key: "instagram",
     icon: FaInstagram,
-    color: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500",
   },
   {
     href: "https://www.facebook.com/hagitp.interior.design",
     key: "facebook",
     icon: FaFacebook,
-    color: "bg-[#1877F2]",
   },
   {
     href: "https://www.linkedin.com/in/hagitoz",
     key: "linkedin",
     icon: FaLinkedin,
-    color: "bg-[#0A66C2]",
   },
 ];
 
@@ -186,11 +183,9 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-4 transition-all duration-300 hover:scale-105 group"
                     >
-                      <div
-                        className={`w-16 h-16 ${link.color} rounded-full flex items-center justify-center shadow-sm group-hover:shadow-lg transition-all flex-shrink-0`}
-                      >
+                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:shadow-lg transition-all flex-shrink-0">
                         <IconComponent
-                          className="w-8 h-8 text-white"
+                          className="w-8 h-8 text-foreground"
                           aria-label={t(`contact.social.${link.key}`) as string}
                         />
                       </div>
