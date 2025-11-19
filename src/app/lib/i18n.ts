@@ -47,7 +47,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     contact: {
       title: "Contact",
-      subtitle: "Share your project—let’s design something beautiful.",
+      subtitle: "Share your project—let's design something beautiful.",
+      socialTitle: "Follow us",
+      social: {
+        instagram: "Instagram",
+        facebook: "Facebook",
+        linkedin: "LinkedIn",
+      },
       form: {
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
@@ -214,6 +220,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "צור קשר",
       subtitle: "ספרו לנו על הפרויקט — ניצור משהו יפהפה יחד.",
+      socialTitle: "עקבו אחרינו",
+      social: {
+        instagram: "אינסטגרם",
+        facebook: "פייסבוק",
+        linkedin: "לינקדאין",
+      },
       form: {
         namePlaceholder: "שם",
         emailPlaceholder: "אימייל",
