@@ -471,7 +471,7 @@ footer {
 }
 
 .home-hero {
-  min-height: 100vh;
+  min-height: 80vh;
   background-image: linear-gradient(
       rgba(139, 144, 121, 0.3),
       rgba(139, 144, 121, 0.4)
