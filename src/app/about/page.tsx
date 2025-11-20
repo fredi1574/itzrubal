@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { JSX } from "react";
 
 export const metadata = { title: "About" };
@@ -124,7 +125,13 @@ const PineconeSection = (): JSX.Element => (
     <p className="about-pinecone-subtitle">הסמל שמאחורי השם</p>
     <div className="about-pinecone-content">
       <div aria-hidden="true" className="about-pinecone-image">
-        🌲
+        <Image
+          alt="לוגו איצטרובל"
+          height={500}
+          priority
+          src="/logo.png"
+          width={500}
+        />
       </div>
       <div className="about-pinecone-text">
         {pineconeParagraphs.map((text) => (
