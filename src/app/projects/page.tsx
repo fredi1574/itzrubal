@@ -1,5 +1,5 @@
-import type { JSX } from "react";
 import Link from "next/link";
+import type { JSX } from "react";
 import { headers } from "next/headers";
 
 export const metadata = { title: "Projects" };
@@ -143,7 +143,22 @@ const ComingSoonCard = ({
 }: ComingSoonCardProps): JSX.Element => (
   <div className="projects-card projects-coming-soon">
     <div className="projects-coming-soon-icon" aria-hidden="true">
-      ⏳
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M6.5 7h11" />
+        <path d="M6.5 17h11" />
+        <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z" />
+        <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z" />
+      </svg>
     </div>
     <h3 className="projects-coming-soon-title">{title}</h3>
     <p className="projects-coming-soon-text">{description}</p>
