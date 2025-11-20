@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { JSX } from "react";
 
 export const metadata = { title: "Services" };
@@ -93,21 +94,25 @@ const processSteps = [
     number: "1",
     title: "פגישת היכרות",
     text: "נפגש, נדבר על החזון, הצרכים והחלומות שלכם.",
+    icon: "/meeting.png",
   },
   {
     number: "2",
     title: "תכנון והצעה",
     text: "אכין עבורכם הצעה מפורטת עם קונספט ראשוני.",
+    icon: "/planning.png",
   },
   {
     number: "3",
     title: "עיצוב ופיתוח",
     text: "נעבוד יחד על הפיתוח המלא של העיצוב.",
+    icon: "/sketches.png",
   },
   {
     number: "4",
     title: "ביצוע והשלמה",
     text: "אלווה אתכם עד לרגע שהמפתח מסתובב בדלת.",
+    icon: "/finish.png",
   },
 ] as const;
 
@@ -187,6 +192,15 @@ const ProcessSection = (): JSX.Element => (
     <div className="services-steps">
       {processSteps.map((step) => (
         <article className="services-step" key={step.number}>
+          <div className="services-step-icon">
+            <Image
+              alt={step.title}
+              className="services-step-icon-image"
+              height={96}
+              src={step.icon}
+              width={96}
+            />
+          </div>
           <div className="services-step-number">{step.number}</div>
           <h4 className="services-step-title">{step.title}</h4>
           <p className="services-step-text">{step.text}</p>
