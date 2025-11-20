@@ -912,16 +912,6 @@ footer {
   align-items: center;
 }
 
-.about-pinecone-image {
-  height: 400px;
-  background: linear-gradient(135deg, #bfa395 0%, #8b9079 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 3rem;
-}
-
 .about-pinecone-text {
   font-size: 1.15rem;
   line-height: 2.2;
