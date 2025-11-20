@@ -99,8 +99,8 @@ export default function ContactPage() {
   return (
     <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
       <div className="max-w-6xl mx-auto px-4 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2 lg:gap-4 items-stretch">
-          <div className="w-full flex flex-col">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-2">
+          <div className="flex flex-col max-w-2xl">
             <form
               onSubmit={onSubmit}
               className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up flex-1"
@@ -111,7 +111,7 @@ export default function ContactPage() {
                   value={name}
                   placeholder={t("contact.form.namePlaceholder") as string}
                   onChange={(e) => setName(e.target.value)}
-                  className="h-12 bg-white border-1 px-4 text-body"
+                  className="h-12 bg-transparent border-1 px-4 text-body"
                   required
                   disabled={status === "submitting"}
                 />
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   value={email}
                   placeholder={t("contact.form.emailPlaceholder") as string}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 bg-white border-1 px-4 text-body"
+                  className="h-12 bg-transparent border-1 px-4 text-body"
                   required
                   disabled={status === "submitting"}
                 />
@@ -168,7 +168,7 @@ export default function ContactPage() {
           </div>
 
           <section className="lg:sticky lg:top-8 flex flex-col">
-            <div className="bg-foreground/10 p-8 border border-foreground/10 h-full flex flex-col w-fit">
+            <div className="bg-foreground/10 p-8 border border-foreground/10 h-full flex flex-col w-fit animate-fade-in-up">
               <h2 className="text-2xl font-medium text-foreground mb-8 text-start">
                 {t("contact.socialTitle") as string}
               </h2>
