@@ -7,7 +7,6 @@ const introText =
 
 const services = [
   {
-    icon: "💡",
     title: "ייעוץ עיצובי",
     subtitle: "נקודת התחלה מושלמת",
     description:
@@ -21,7 +20,6 @@ const services = [
     ],
   },
   {
-    icon: "📐",
     title: "תכנון מלא",
     subtitle: "עיצוב מקיף מהיסוד",
     description:
@@ -36,7 +34,6 @@ const services = [
     ],
   },
   {
-    icon: "🔨",
     title: "ליווי שיפוצים",
     subtitle: "ניהול הפרויקט מתחילתו ועד סופו",
     description:
@@ -51,7 +48,6 @@ const services = [
     ],
   },
   {
-    icon: "✨",
     title: "הום סטיילינג",
     subtitle: "שינוי בלי שיפוץ",
     description:
@@ -65,7 +61,6 @@ const services = [
     ],
   },
   {
-    icon: "🛋️",
     title: "עיצוב חדר בודד",
     subtitle: "פוקוס על חלל אחד",
     description:
@@ -79,7 +74,6 @@ const services = [
     ],
   },
   {
-    icon: "🎨",
     title: "בחירת חומרים וגימורים",
     subtitle: "הפרטים שעושים את ההבדל",
     description:
@@ -140,10 +134,6 @@ const faqItems = [
   },
 ] as const;
 
-/**
- * Displays the services overview with hero, offerings, process and FAQ.
- * @returns {JSX.Element} Services landing page content in Hebrew RTL layout.
- */
 const ServicesPage = (): JSX.Element => (
   <div className="services-page" dir="rtl" lang="he">
     <HeroSection />
@@ -175,9 +165,6 @@ const ServicesSection = (): JSX.Element => (
     <div className="services-grid">
       {services.map((service) => (
         <article className="services-card" key={service.title}>
-          <div aria-hidden="true" className="services-icon">
-            {service.icon}
-          </div>
           <h3 className="services-title">{service.title}</h3>
           <p className="services-subtitle">{service.subtitle}</p>
           <p className="services-description">{service.description}</p>
