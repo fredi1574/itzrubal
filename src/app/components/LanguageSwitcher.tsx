@@ -1,11 +1,18 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type JSX } from "react";
 import { CiGlobe } from "react-icons/ci";
 import { useLocale } from "../lib/LocaleProvider";
 import { IoChevronDownOutline } from "react-icons/io5";
 
-export default function LanguageSwitcher() {
+type LanguageSwitcherProps = {
+  menuPlacement?: "top" | "bottom";
+};
+
+export default function LanguageSwitcher(
+  props?: LanguageSwitcherProps
+): JSX.Element {
+  const { menuPlacement = "bottom" } = props ?? {};
   const { locale, setLocale, t } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -59,7 +66,13 @@ export default function LanguageSwitcher() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1 w-32 bg-white rounded-lg border border-black/10 dark:border-white/10 shadow-lg z-50 animate-scale-in backdrop-blur-sm">
+        <div
+          className={`absolute right-0 w-32 bg-white rounded-lg border border-black/10 dark:border-white/10 shadow-lg z-50 animate-scale-in backdrop-blur-sm ${
+            menuPlacement === "top"
+              ? "bottom-full mb-1 origin-bottom"
+              : "top-full mt-1 origin-top"
+          }`}
+        >
           {languages.map((language, index) => (
             <button
               key={language.code}
