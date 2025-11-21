@@ -115,10 +115,7 @@ function MobileDrawer({
         onClick={onNavigate}
       />
       <div className="ml-auto flex h-full w-72 flex-col border-l border-border bg-background shadow-2xl animate-slide-in-right">
-        <div className="flex items-center justify-between border-b border-border px-4 py-3">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground/70">
-            Menu
-          </span>
+        <div className="flex items-center justify-end border-b border-border px-4 py-3">
           <button
             type="button"
             aria-label="Close navigation drawer"
