@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { JSX } from "react";
 
 export const metadata = { title: "About" };
