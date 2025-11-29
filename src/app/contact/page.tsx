@@ -3,25 +3,6 @@
 import { FormEvent, useState } from "react";
 import { useLocale } from "../lib/LocaleProvider";
 import { IoCheckmark, IoCloseCircle, IoRefresh } from "react-icons/io5";
-import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
-
-const socialLinks = [
-  {
-    href: "https://www.instagram.com/hagit_int_design/",
-    key: "instagram",
-    icon: FaInstagram,
-  },
-  {
-    href: "https://www.facebook.com/hagitp.interior.design",
-    key: "facebook",
-    icon: FaFacebook,
-  },
-  {
-    href: "https://www.linkedin.com/in/hagitoz",
-    key: "linkedin",
-    icon: FaLinkedin,
-  },
-];
 
 export default function ContactPage() {
   const { t } = useLocale();
@@ -29,6 +10,7 @@ export default function ContactPage() {
     "idle"
   );
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -43,7 +25,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, phone, email, message }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -64,9 +46,9 @@ export default function ContactPage() {
 
   if (status === "success") {
     return (
-      <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
-        <div className="max-w-2xl mx-auto text-center animate-fade-in-up px-4 w-full">
-          <div className="bg-gradient-to-br from-accent/10 to-accent/5 p-8 border border-accent/20">
+      <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8 px-4">
+        <div className="max-w-2xl mx-auto text-center animate-fade-in-up w-full">
+          <div className="bg-gradient-to-br from-accent/10 to-accent/5 p-8 border border-accent/20 rounded-3xl">
             <div className="w-16 h-16 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
               <IoCheckmark className="w-8 h-8 text-accent" />
             </div>
@@ -81,11 +63,12 @@ export default function ContactPage() {
               onClick={() => {
                 setStatus("idle");
                 setName("");
+                setPhone("");
                 setEmail("");
                 setMessage("");
                 setError(null);
               }}
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 bg-accent text-background hover:brightness-95 hover:scale-105 shadow-sm"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 bg-accent text-background hover:brightness-95 hover:scale-105 shadow-sm rounded-xl"
             >
               {(t("contact.form.sendAnother") as string) ||
                 "Send Another Message"}
@@ -97,64 +80,127 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8">
-      <div className="max-w-6xl mx-auto px-4 w-full">
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-2">
-          <div className="flex flex-col max-w-2xl">
-            <form
-              onSubmit={onSubmit}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fade-in-up flex-1"
-            >
-              <label className="grid gap-3 group">
-                <input
-                  name="name"
-                  value={name}
-                  placeholder={t("contact.form.namePlaceholder") as string}
-                  onChange={(e) => setName(e.target.value)}
-                  className="h-12 bg-transparent border-1 px-4 text-body"
-                  required
-                  disabled={status === "submitting"}
-                />
-              </label>
+    <div className="min-h-[calc(100vh-200px)] py-10 px-4">
+      <div className="max-w-4xl mx-auto w-full">
+        <div className="bg-background rounded-3xl shadow-2xl overflow-hidden">
+          {/* Header Section */}
+          <div className="bg-gradient-to-br from-accent to-[#a89885] text-background py-16 px-8 md:px-12 text-center">
+            <h1 className="heading-xl mb-6 text-background font-light tracking-wide">
+              {(t("contact.headerTitle") as string) ||
+                "Let's start planning together"}
+            </h1>
+            <p className="text-lg md:text-xl leading-relaxed opacity-95 max-w-2xl mx-auto">
+              {(t("contact.headerSubtitle") as string) ||
+                "If you've reached here, your home is probably asking to change—and I'm here for you."}
+            </p>
+          </div>
 
-              <label className="grid gap-3 group">
-                <input
-                  name="email"
-                  type="email"
-                  value={email}
-                  placeholder={t("contact.form.emailPlaceholder") as string}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 bg-transparent border-1 px-4 text-body"
-                  required
-                  disabled={status === "submitting"}
-                />
-              </label>
-
-              <label className="sm:col-span-2 grid gap-3 group">
-                <textarea
-                  name="message"
-                  value={message}
-                  placeholder={t("contact.form.messagePlaceholder") as string}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="min-h-32 px-4 py-3 text-body border-1 resize-none"
-                  required
-                  disabled={status === "submitting"}
-                />
-              </label>
-
-              {error && (
-                <div className="sm:col-span-2 p-4 bg-red-50 border border-red-200 rounded-xl animate-fade-in-up">
-                  <div className="flex items-center gap-3">
-                    <IoCloseCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-                    <p className="text-caption text-red-700">{error}</p>
-                  </div>
+          {/* Content Section */}
+          <div className="p-8 md:p-12">
+            {/* Form Section */}
+            <div className="mb-12">
+              <h2 className="heading-md text-foreground mb-8 font-normal">
+                {(t("contact.formTitle") as string) || "Leave your details"}
+              </h2>
+              <form onSubmit={onSubmit} className="space-y-6">
+                <div>
+                  <label
+                    htmlFor="fullName"
+                    className="block mb-2 text-foreground font-medium text-sm"
+                  >
+                    {(t("contact.nameLabel") as string) || "Full name"}{" "}
+                    <span className="text-red-500">
+                      {t("contact.required") as string}
+                    </span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_0_0_3px_rgba(191,163,149,0.1)] disabled:opacity-60"
+                  />
                 </div>
-              )}
 
-              <div className="sm:col-span-2 pt-4">
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block mb-2 text-foreground font-medium text-sm"
+                  >
+                    {(t("contact.phoneLabel") as string) || "Phone"}{" "}
+                    <span className="text-red-500">
+                      {t("contact.required") as string}
+                    </span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_0_0_3px_rgba(191,163,149,0.1)] disabled:opacity-60"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-foreground font-medium text-sm"
+                  >
+                    {(t("contact.emailLabel") as string) || "Email"}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_0_0_3px_rgba(191,163,149,0.1)] disabled:opacity-60"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block mb-2 text-foreground font-medium text-sm"
+                  >
+                    {(t("contact.messageLabel") as string) ||
+                      "Tell me a bit about the project"}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder={
+                      (t("contact.messagePlaceholder") as string) ||
+                      "Which space would you like to change?"
+                    }
+                    rows={6}
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_0_0_3px_rgba(191,163,149,0.1)] resize-y min-h-[150px] disabled:opacity-60"
+                  />
+                </div>
+
+                {error && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-xl animate-fade-in-up">
+                    <div className="flex items-center gap-3">
+                      <IoCloseCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                      <p className="text-caption text-red-700">{error}</p>
+                    </div>
+                  </div>
+                )}
+
                 <button
+                  type="submit"
                   disabled={status !== "idle"}
-                  className="w-full h-12 bg-accent text-background font-medium transition-all duration-300 hover:brightness-95 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md flex items-center justify-center gap-3"
+                  className="w-full py-5 bg-gradient-to-br from-accent to-[#a89885] text-background border-none rounded-xl text-lg font-medium cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_20px_rgba(191,163,149,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-3 tracking-wide"
                 >
                   {status === "submitting" && (
                     <IoRefresh className="w-5 h-5 animate-spin" />
@@ -163,39 +209,116 @@ export default function ContactPage() {
                     ? (t("contact.form.submitSubmitting") as string)
                     : (t("contact.form.submitIdle") as string)}
                 </button>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
 
-          <section className="lg:sticky lg:top-8 flex flex-col">
-            <div className="bg-foreground/10 p-8 border border-foreground/10 h-full flex flex-col w-fit animate-fade-in-up">
-              <h2 className="text-2xl font-medium text-foreground mb-8 text-start">
-                {t("contact.socialTitle") as string}
+            {/* Next Steps Section */}
+            <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl p-8 mb-10 border-r-4 border-accent">
+              <h3 className="heading-sm text-foreground mb-4 font-normal">
+                {(t("contact.nextStepsTitle") as string) ||
+                  "What happens after you send?"}
+              </h3>
+              <p className="text-body text-foreground/80 leading-relaxed text-base">
+                {(t("contact.nextStepsText") as string) ||
+                  "I'll get back to you within 24 hours, we'll schedule a short introductory call (no commitment), and we'll understand together how we can move forward."}
+              </p>
+            </div>
+
+            {/* Contact Info Section */}
+            <div className="bg-muted/30 rounded-2xl p-8 md:p-10">
+              <h2 className="heading-md text-foreground mb-8 font-normal">
+                {(t("contact.contactInfoTitle") as string) ||
+                  "Additional contact methods"}
               </h2>
-              <div className="flex flex-col gap-6 flex-1 justify-center">
-                {socialLinks.map((link) => {
-                  const IconComponent = link.icon;
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-start gap-4 transition-all duration-300 hover:scale-105 group"
-                    >
-                      <IconComponent
-                        className="w-8 h-8 text-foreground"
-                        aria-label={t(`contact.social.${link.key}`) as string}
-                      />
-                      <span className="text-body font-medium text-foreground group-hover:text-accent transition-colors text-start">
-                        {t(`contact.social.${link.key}`) as string}
-                      </span>
-                    </a>
-                  );
-                })}
+
+              <div className="space-y-5">
+                {/* Phone */}
+                <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className="text-2xl min-w-[30px]">📞</div>
+                  <div className="flex-1">
+                    <span className="block font-semibold text-foreground mb-1">
+                      {(t("contact.phone") as string) || "Phone"}
+                    </span>
+                    <span className="text-foreground/70">
+                      <a
+                        href="tel:0500000000"
+                        className="text-accent no-underline transition-colors duration-300 hover:text-foreground"
+                      >
+                        050-0000000
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                {/* WhatsApp */}
+                <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className="text-2xl min-w-[30px]">💬</div>
+                  <div className="flex-1">
+                    <span className="block font-semibold text-foreground mb-1">
+                      {(t("contact.whatsapp") as string) || "WhatsApp"}
+                    </span>
+                    <span className="text-foreground/70">
+                      <a
+                        href="https://wa.me/972500000000"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent no-underline transition-colors duration-300 hover:text-foreground"
+                      >
+                        {(t("contact.whatsappLink") as string) ||
+                          "Send a message"}
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className="text-2xl min-w-[30px]">✉️</div>
+                  <div className="flex-1">
+                    <span className="block font-semibold text-foreground mb-1">
+                      {(t("contact.email") as string) || "Email"}
+                    </span>
+                    <span className="text-foreground/70">
+                      <a
+                        href="mailto:design@example.com"
+                        className="text-accent no-underline transition-colors duration-300 hover:text-foreground"
+                      >
+                        design@example.com
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className="text-2xl min-w-[30px]">📍</div>
+                  <div className="flex-1">
+                    <span className="block font-semibold text-foreground mb-1">
+                      {(t("contact.location") as string) || "Service area"}
+                    </span>
+                    <span className="text-foreground/70">
+                      {(t("contact.locationValue") as string) ||
+                        "Haifa, Krayot and the North"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Hours */}
+                <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className="text-2xl min-w-[30px]">🕒</div>
+                  <div className="flex-1">
+                    <span className="block font-semibold text-foreground mb-1">
+                      {(t("contact.hours") as string) || "Available hours"}
+                    </span>
+                    <span className="text-foreground/70">
+                      {(t("contact.hoursValue") as string) ||
+                        "Sun–Thu, 9:00–17:00"}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </div>

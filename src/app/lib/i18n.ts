@@ -48,6 +48,29 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "Contact",
       subtitle: "Share your project—let's design something beautiful.",
+      headerTitle: "Let's start planning together",
+      headerSubtitle:
+        "If you've reached here, your home is probably asking to change—and I'm here for you. I'd love to meet, listen and understand what's important to you, and plan together a place that truly feels yours.",
+      formTitle: "Leave your details",
+      nameLabel: "Full name",
+      phoneLabel: "Phone",
+      emailLabel: "Email",
+      messageLabel: "Tell me a bit about the project",
+      messagePlaceholder:
+        "Which space would you like to change? What bothers you most today? What would you like to feel in the new home?",
+      required: "*",
+      nextStepsTitle: "What happens after you send?",
+      nextStepsText:
+        "I'll get back to you within 24 hours, we'll schedule a short introductory call (no commitment), and we'll understand together how we can move forward.",
+      contactInfoTitle: "Additional contact methods",
+      phone: "Phone",
+      whatsapp: "WhatsApp",
+      whatsappLink: "Send a message",
+      email: "Email",
+      location: "Service area",
+      locationValue: "Haifa, Krayot and the North",
+      hours: "Available hours",
+      hoursValue: "Sun–Thu, 9:00–17:00",
       socialTitle: "Follow us",
       social: {
         instagram: "Instagram",
@@ -57,6 +80,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       form: {
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
+        phonePlaceholder: "Phone",
         messagePlaceholder: "Tell us about your project",
         submitIdle: "Send inquiry",
         submitSubmitting: "Sending...",
@@ -220,6 +244,29 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "צור קשר",
       subtitle: "ספרו לנו על הפרויקט — ניצור משהו יפהפה יחד.",
+      headerTitle: "בואו נתחיל לתכנן ביחד",
+      headerSubtitle:
+        "אם הגעתם לכאן, כנראה שהבית שלכם מבקש להשתנות - ואני כאן בשבילכם. אשמח להכיר, להקשיב ולהבין מה חשוב לכם, ולתכנן ביחד מקום שמרגיש באמת שלכם.",
+      formTitle: "השאירו פרטים",
+      nameLabel: "שם מלא",
+      phoneLabel: "טלפון",
+      emailLabel: "אימייל",
+      messageLabel: "ספרו לי קצת על הפרויקט",
+      messagePlaceholder:
+        "איזה חלל תרצו לשנות? מה הכי מפריע לכם היום? מה הייתם רוצים להרגיש בבית החדש?",
+      required: "*",
+      nextStepsTitle: "מה קורה אחרי שתשלחו?",
+      nextStepsText:
+        "אחזור אליכם תוך 24 שעות, נקבע שיחת היכרות קצרה (ללא התחייבות), ונבין ביחד איך אפשר להתקדם.",
+      contactInfoTitle: "דרכי קשר נוספות",
+      phone: "טלפון",
+      whatsapp: "וואטסאפ",
+      whatsappLink: "שלחו הודעה",
+      email: "אימייל",
+      location: "אזור פעילות",
+      locationValue: "חיפה, קריות וצפון",
+      hours: "שעות זמינות",
+      hoursValue: "א'–ה', 9:00–17:00",
       socialTitle: "עקבו אחרינו",
       social: {
         instagram: "אינסטגרם",
@@ -229,6 +276,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       form: {
         namePlaceholder: "שם",
         emailPlaceholder: "אימייל",
+        phonePlaceholder: "טלפון",
         messagePlaceholder: "ספרו לנו על הפרויקט שלכם",
         submitIdle: "שלחו פנייה",
         submitSubmitting: "שולחים...",

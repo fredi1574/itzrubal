@@ -4,9 +4,12 @@ const DEFAULT_TO_EMAIL = "fredi1574@gmail.com"; // Resend sandbox requires exact
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, message } = await req.json();
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    const { name, phone, email, message } = await req.json();
+    if (!name || !phone) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
     }
 
     const apiKey = process.env.RESEND_API_KEY;
@@ -43,7 +46,7 @@ export async function POST(req: NextRequest) {
               box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             }
             .header {
-              background: linear-gradient(135deg, #7a5c3e, #9d7a5c);
+              background: linear-gradient(135deg, #bfa395, #a89885);
               color: white;
               padding: 32px;
               text-align: center;
@@ -78,7 +81,7 @@ export async function POST(req: NextRequest) {
             }
             .detail-label {
               font-weight: 600;
-              color: #7a5c3e;
+              color: #bfa395;
               min-width: 80px;
               margin-right: 16px;
             }
@@ -100,12 +103,12 @@ export async function POST(req: NextRequest) {
               background: #f4ece3;
               padding: 24px 32px;
               text-align: center;
-              color: #7a5c3e;
+              color: #bfa395;
               font-size: 14px;
             }
             .cta-button {
               display: inline-block;
-              background: #7a5c3e;
+              background: #bfa395;
               color: white;
               padding: 12px 24px;
               border-radius: 8px;
@@ -115,7 +118,7 @@ export async function POST(req: NextRequest) {
             }
             .divider {
               height: 1px;
-              background: linear-gradient(90deg, transparent, #7a5c3e, transparent);
+              background: linear-gradient(90deg, transparent, #bfa395, transparent);
               margin: 24px 0;
             }
           </style>
@@ -133,9 +136,17 @@ export async function POST(req: NextRequest) {
                   <div class="detail-value">${name}</div>
                 </div>
                 <div class="detail-row">
+                  <div class="detail-label">Phone:</div>
+                  <div class="detail-value">${phone}</div>
+                </div>
+                ${
+                  email
+                    ? `<div class="detail-row">
                   <div class="detail-label">Email:</div>
                   <div class="detail-value">${email}</div>
-                </div>
+                </div>`
+                    : ""
+                }
                 <div class="detail-row">
                   <div class="detail-label">Date:</div>
                   <div class="detail-value">${new Date().toLocaleDateString(
@@ -152,13 +163,20 @@ export async function POST(req: NextRequest) {
               
               <div class="divider"></div>
               
-              <h3 style="color: #7a5c3e; margin: 0 0 16px 0; font-family: 'Playfair Display', Georgia, serif;">Their Message:</h3>
+              <h3 style="color: #bfa395; margin: 0 0 16px 0; font-family: 'Playfair Display', Georgia, serif;">Their Message:</h3>
               <div class="message-content">
                 ${message.replace(/\n/g, "<br>")}
               </div>
               
               <div style="text-align: center; margin-top: 32px;">
-                <a href="mailto:${email}" class="cta-button">Reply to ${name}</a>
+                ${
+                  email
+                    ? `<a href="mailto:${email}" class="cta-button">Reply to ${name}</a>`
+                    : `<a href="tel:${phone.replace(
+                        /\D/g,
+                        ""
+                      )}" class="cta-button">Call ${name}</a>`
+                }
               </div>
             </div>
           </div>
@@ -168,13 +186,14 @@ export async function POST(req: NextRequest) {
       text: `New Design Inquiry from ${name}
 
 Name: ${name}
-Email: ${email}
+Phone: ${phone}
+${email ? `Email: ${email}` : ""}
 Date: ${new Date().toLocaleDateString()}
 
 Message:
 ${message}
 
-Reply to: ${email}`,
+${email ? `Reply to: ${email}` : `Call: ${phone}`}`,
     };
 
     if (!apiKey) {
