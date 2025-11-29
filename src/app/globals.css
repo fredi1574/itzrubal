@@ -823,22 +823,6 @@ footer {
   font-weight: 300;
 }
 
-.about-content {
-  max-width: 900px;
-  margin: 6rem auto;
-  padding: 0 5%;
-}
-
-.about-intro-text {
-  font-size: 1.4rem;
-  line-height: 2.2;
-  color: #8b9079;
-  margin-bottom: 3rem;
-  text-align: center;
-  font-weight: 300;
-  font-style: italic;
-}
-
 .about-image {
   margin: 5rem 0;
   height: 500px;
@@ -848,18 +832,6 @@ footer {
   justify-content: center;
   color: #8b9079;
   text-align: center;
-}
-
-.about-section {
-  margin: 5rem 0;
-}
-
-.about-section-title {
-  font-size: 2.2rem;
-  font-weight: 300;
-  color: #8b9079;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
 }
 
 .about-section-paragraph {
