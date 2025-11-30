@@ -97,7 +97,7 @@ const PhilosophySection = (): JSX.Element => (
 
 const PortfolioSection = (): JSX.Element => (
   <section className="home-portfolio" id="portfolio">
-    <h2>פרויקטים נבחרים</h2>
+    <h2 className="home-portfolio-title">פרויקטים נבחרים</h2>
     <div className="home-portfolio-grid">
       {portfolioItems.map((item) => (
         <div className="home-portfolio-item" key={item}>
@@ -110,7 +110,8 @@ const PortfolioSection = (): JSX.Element => (
 
 const CallToActionSection = (): JSX.Element => (
   <section className="home-cta" id="contact">
-    <h2>מוכנים להתחיל?</h2>
+    <h2 className="home-cta-title">מוכנים להתחיל?</h2>
+    {/* TODO: Change the text size */}
     <p>
       בואו נדבר על איך אפשר להפוך את הבית שלכם
       <br />
