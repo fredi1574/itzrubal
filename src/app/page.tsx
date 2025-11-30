@@ -1,5 +1,6 @@
-import type { JSX } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import type { JSX } from "react";
 
 const aboutParagraphs = [
   "כאן מתחיל מסע שעובר דרך קירות, צבעים ורהיטים, אבל בליבו הוא עוסק ביצירת בית שמרגיש שלכם ושמשקף את מי שאתם באמת.",
@@ -115,9 +116,9 @@ const CallToActionSection = (): JSX.Element => (
       <br />
       למקום שבאמת מרגיש כמו בית
     </p>
-    <a className="home-cta-secondary" href="mailto:contact@itztrubel.co.il">
+    <Link className="home-cta-secondary" href="/contact">
       צרו קשר
-    </a>
+    </Link>
   </section>
 );
 
