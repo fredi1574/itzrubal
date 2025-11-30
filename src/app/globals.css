@@ -4,7 +4,7 @@
 
 :root {
   --background: #fff;
-  --foreground: #8b9079;
+  --foreground: #808570;
   --muted: #ddcfc2;
   --accent: #bfa395;
 }
@@ -24,7 +24,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #fff;
-    --foreground: #8b9079;
+    --foreground: #808570;
     --muted: #ddcfc2;
     --accent: #bfa395;
   }
@@ -409,11 +409,6 @@ select:focus-visible {
   font-size: 0.875rem;
 }
 
-/* Studio name styling */
-.studio-name {
-  color: #bfa395;
-}
-
 .site-nav-link {
   position: relative;
   padding-bottom: 5px;
@@ -427,7 +422,7 @@ select:focus-visible {
   right: 0;
   width: 0;
   height: 2px;
-  background: #bfa395;
+  background: #b8a195;
   transition: width 0.3s ease;
 }
 
@@ -448,7 +443,7 @@ select:focus-visible {
   right: 0;
   width: 0;
   height: 2px;
-  background: #bfa395;
+  background: #b8a195;
   transition: width 0.3s ease;
 }
 
@@ -636,6 +631,7 @@ footer {
   font-weight: 200;
   letter-spacing: 5px;
   margin-bottom: 1.5rem;
+  color: #808570;
 }
 
 .home-about-hero-text {
@@ -645,6 +641,7 @@ footer {
   max-width: 800px;
   margin: 0 auto;
   line-height: 2;
+  color: #808570;
 }
 
 .home-philosophy {

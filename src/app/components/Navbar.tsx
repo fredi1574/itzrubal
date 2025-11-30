@@ -54,8 +54,8 @@ function NavLinks({
       {linkDefs.map((link) => {
         const active = pathname === link.href;
         const stateClasses = active
-          ? "text-accent font-medium"
-          : "text-foreground/60 hover:text-accent";
+          ? "text-[#B8A195] font-medium"
+          : "text-[#B2B5AA] hover:text-accent";
         return (
           <Link
             key={link.href}
