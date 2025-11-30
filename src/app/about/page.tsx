@@ -44,10 +44,7 @@ const values = [
 const AboutPage = (): JSX.Element => (
   <div className="about-page" dir="rtl" lang="he">
     <HeroSection />
-    <section className="flex gap-10 max-w-7xl mx-auto">
-      <ImageSection />
-      <StorySection />
-    </section>
+    <StorySection />
     <ApproachSection />
     <ValuesSection />
     <ClosingSection />
@@ -61,15 +58,9 @@ const HeroSection = (): JSX.Element => (
   </section>
 );
 
-const ImageSection = (): JSX.Element => (
-  <div className="about-image w-1/2">[תמונה של המעצבת]</div>
-);
-
 const StorySection = (): JSX.Element => (
-  <section className="w-1/2">
-    <h2 className="text-5xl my-8 font-light text-foreground tracking-widest text-center">
-      המסע שלי
-    </h2>
+  <section className="about-story-with-image max-w-7xl mx-auto">
+    <div className="about-image-float">[תמונה של המעצבת]</div>
     {storyParagraphs.map((text) => (
       <p className="about-section-paragraph" key={text}>
         {text}
@@ -86,9 +77,6 @@ const StorySection = (): JSX.Element => (
 
 const ApproachSection = (): JSX.Element => (
   <section className="max-w-7xl mx-auto">
-    <h2 className="text-5xl my-8 font-light text-foreground tracking-widest text-center">
-      הגישה שלי
-    </h2>
     {approachParagraphs.map((text) => (
       <p className="about-section-paragraph" key={text}>
         {text}

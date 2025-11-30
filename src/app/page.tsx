@@ -45,44 +45,26 @@ const portfolioItems = [
 
 const HomePage = (): JSX.Element => (
   <div className="home-page" dir="rtl" lang="he">
-    {/* <HeroSection /> */}
     <AboutSection />
+    <AboutContentSection />
     <PhilosophySection />
     <PortfolioSection />
     <CallToActionSection />
   </div>
 );
 
-const HeroSection = (): JSX.Element => (
-  <section className="home-hero" id="home">
-    <div className="home-hero-content">
-      <h1 className="home-hero-title">איצטרובל</h1>
-      <p className="home-hero-subtitle">
-        עיצוב פנים שקט, נעים וזורם
-        <br />
-        חללים שמרגישים כמו בית
-      </p>
-      <a className="home-cta-button" href="#contact">
-        בואו נתחיל לעצב
-      </a>
-    </div>
-    <ScrollIndicator />
+const AboutSection = (): JSX.Element => (
+  <section className="home-about-hero" id="about">
+    <h1 className="home-about-hero-title">ברוכים הבאים</h1>
+    <p className="home-about-hero-text">{aboutParagraphs[0]}</p>
   </section>
 );
 
-const ScrollIndicator = (): JSX.Element => (
-  <div aria-hidden="true" className="home-scroll-indicator" />
-);
-
-const AboutSection = (): JSX.Element => (
-  <section className="home-about" id="about">
-    <div className="home-about-image">[תמונה של המעצבת או פרויקט מרכזי]</div>
-    <div className="home-about-content">
-      <h2>ברוכים הבאים.</h2>
-      {aboutParagraphs.map((text) => (
-        <p key={text}>{text}</p>
-      ))}
-    </div>
+const AboutContentSection = (): JSX.Element => (
+  <section className="home-about-content">
+    {aboutParagraphs.slice(1).map((text) => (
+      <p key={text}>{text}</p>
+    ))}
   </section>
 );
 

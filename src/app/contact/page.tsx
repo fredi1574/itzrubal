@@ -193,9 +193,9 @@ export default function ContactPage() {
                 </div>
 
                 {/* Contact Info Section */}
-                <div className="lg:w-2/5">
-                  <div className="bg-muted/30 rounded-2xl p-8 md:p-10">
-                    <h2 className="heading-md text-foreground mb-8 font-normal">
+                <div className="lg:w-3/5">
+                  <div className="bg-muted/30 pt-0 pb-2 px-2 md:pt-0 md:pb-10 md:px-10">
+                    <h2 className="heading-md py-2 text-foreground font-normal text-center">
                       {(t("contact.contactInfoTitle") as string) ||
                         "Additional contact methods"}
                     </h2>
@@ -210,10 +210,10 @@ export default function ContactPage() {
                           </span>
                           <span className="text-foreground/70">
                             <a
-                              href="tel:0500000000"
+                              href="tel:+972503200133"
                               className="text-accent no-underline transition-colors duration-300 hover:text-foreground"
                             >
-                              050-0000000
+                              050-3200133
                             </a>
                           </span>
                         </div>
@@ -305,7 +305,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={status !== "idle"}
-                className="w-full py-5 bg-gradient-to-br from-accent mb-4 to-[#a89885] text-background border-none rounded-xl text-lg font-medium cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_20px_rgba(191,163,149,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-3 tracking-wide"
+                className="w-full py-5 bg-gradient-to-br from-accent mb-4 to-[#a89885] text-background border-none text-lg font-medium cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_20px_rgba(191,163,149,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-3 tracking-wide"
               >
                 {status === "submitting" && (
                   <IoRefresh className="w-5 h-5 animate-spin" />
@@ -317,7 +317,7 @@ export default function ContactPage() {
             </form>
 
             {/* Next Steps Section */}
-            <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl p-8 mb-10 border-r-4 border-accent">
+            <div className="bg-gradient-to-br from-muted/50 to-muted/30  p-8 mb-10 border-r-4 border-accent">
               <h3 className="heading-sm text-foreground mb-4 font-normal">
                 {(t("contact.nextStepsTitle") as string) ||
                   "What happens after you send?"}
