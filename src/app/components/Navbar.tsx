@@ -198,9 +198,9 @@ function Logo({ label }: LogoProps): JSX.Element {
     <div className="flex flex-1 items-center">
       <Link
         href="/"
-        className="heading-md font-alef flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:text-accent"
+        className="heading-md font-alef flex items-center gap-2 transition-all duration-300 hover:scale-110 hover:text-accent"
       >
-        <Image src="/logo.png" alt="Iztrubal logo" width={50} height={50} />
+        <Image src="/logo.png" alt="Iztrubal logo" width={70} height={70} />
         <span className="studio-name">{label}</span>
       </Link>
     </div>
