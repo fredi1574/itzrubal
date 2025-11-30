@@ -3,7 +3,6 @@ import type { Dictionary, Locale } from "./types";
 export const dictionaries: Record<Locale, Dictionary> = {
   en: {
     nav: {
-      logo: "Iztrubal",
       home: "Home",
       about: "About",
       services: "Services",
@@ -210,7 +209,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
   },
   he: {
     nav: {
-      logo: "אִצְטְרֻבָּל",
       home: "דף הבית",
       about: "אודות",
       services: "מסלולים",
