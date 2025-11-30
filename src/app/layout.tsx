@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Crimson_Text, Alef } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Alef, Crimson_Text, Geist, Geist_Mono, Inter } from "next/font/google";
 import { cookies } from "next/headers";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import "./globals.css";
 import { LocaleProvider } from "./lib/LocaleProvider";
 import { getDirection, getSafeLocale } from "./lib/i18n";
-import Image from "next/image";
 
 // Clean sans-serif for body text
 const inter = Inter({
@@ -45,8 +44,8 @@ const alef = Alef({
 
 export const metadata: Metadata = {
   title: {
-    default: "Iztrubal Interior Design",
-    template: "%s - Iztrubal",
+    default: "Hagit Oz Interior Design",
+    template: "%s - Hagit Oz",
   },
 };
 
@@ -63,36 +62,6 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${crimsonText.variable} ${geistSans.variable} ${geistMono.variable} ${alef.variable} antialiased min-h-screen flex flex-col`}
       >
-        {/* <div
-          className="fixed top-20 left-0 z-0 pointer-events-none"
-          style={{
-            transform: "rotate(-15deg)",
-            transformOrigin: "left",
-          }}
-        >
-          <Image
-            src="/background.svg"
-            alt="Background"
-            width={300}
-            height={300}
-            className="opacity-10"
-          />
-        </div>
-        <div
-          className="fixed bottom-0 right-0 z-0 pointer-events-none"
-          style={{
-            transform: "rotate(15deg)",
-            transformOrigin: "right",
-          }}
-        >
-          <Image
-            src="/background.svg"
-            alt="Background"
-            width={400}
-            height={400}
-            className="opacity-10"
-          />
-        </div> */}
         <LocaleProvider initialLocale={initialLocale}>
           <Navbar />
           <main className="flex-1 relative z-10">{children}</main>
