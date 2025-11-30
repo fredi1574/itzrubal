@@ -608,7 +608,8 @@ footer {
 }
 
 .home-about-content p {
-  font-size: 1.15rem;
+  /* font-size: 1.15rem; */
+  font-size: 1rem;
   line-height: 2;
   color: #8b9079;
   margin-bottom: 1.8rem;
@@ -638,7 +639,7 @@ footer {
 
 .home-about-hero-text {
   /* font-size: clamp(14px, 3vw, 1.4rem); */
-  font-size: 18px;
+  font-size: 1.15rem;
   font-weight: 300;
   max-width: 800px;
   margin: 0 auto;
