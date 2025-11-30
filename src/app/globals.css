@@ -659,7 +659,7 @@ footer {
 
 .home-philosophy {
   background: linear-gradient(to bottom, #e9e2dc 0%, #ddcfc2 100%);
-  padding: 8rem 5%;
+  padding: 2rem;
 }
 
 .home-philosophy-content {
@@ -672,7 +672,7 @@ footer {
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 3rem;
-  color: #8b9079;
+  color: #808570;
   letter-spacing: 2px;
 }
 
@@ -704,7 +704,7 @@ footer {
 }
 
 .home-value-card p {
-  color: #8b9079;
+  color: #615b55;
   line-height: 1.9;
   font-size: 1.05rem;
 }
@@ -720,7 +720,7 @@ footer {
   font-weight: 300;
   text-align: center;
   margin-bottom: 4rem;
-  color: #8b9079;
+  color: #808570;
   letter-spacing: 2px;
 }
 
@@ -775,7 +775,7 @@ footer {
 .home-cta {
   background: linear-gradient(135deg, #8b9079 0%, #6b7160 100%);
   color: #fff;
-  padding: 6rem 5%;
+  padding: 2rem;
   text-align: center;
 }
 
