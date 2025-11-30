@@ -55,7 +55,7 @@ function NavLinks({
         const active = pathname === link.href;
         const stateClasses = active
           ? "text-[#B8A195] font-medium"
-          : "text-[#B2B5AA] hover:text-accent";
+          : "text-[#A4AB90] hover:text-accent";
         return (
           <Link
             key={link.href}
@@ -204,7 +204,7 @@ function Logo({ label }: LogoProps): JSX.Element {
           src="/logo.png"
           className="mt-14"
           alt="Iztrubal logo"
-          width={130}
+          width={150}
           height={70}
         />
         <span className="studio-name">{label}</span>
