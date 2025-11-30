@@ -39,10 +39,6 @@ type MobileToggleProps = {
   onToggle: () => void;
 };
 
-type LogoProps = {
-  label: string;
-};
-
 function NavLinks({
   itemClass,
   onNavigate,
@@ -193,26 +189,6 @@ function MobileToggle({ onToggle, open }: MobileToggleProps): JSX.Element {
   );
 }
 
-function Logo({ label }: LogoProps): JSX.Element {
-  return (
-    <div className="flex flex-1 items-center">
-      <Link
-        href="/"
-        className="heading-md font-alef flex items-center gap-2 transition-all duration-300 hover:scale-110 hover:text-accent"
-      >
-        <Image
-          src="/logo.png"
-          className="mt-14"
-          alt="Iztrubal logo"
-          width={150}
-          height={70}
-        />
-        <span className="studio-name">{label}</span>
-      </Link>
-    </div>
-  );
-}
-
 export default function Navbar(): JSX.Element {
   const pathname = usePathname();
   const { t } = useLocale();
@@ -224,7 +200,7 @@ export default function Navbar(): JSX.Element {
     <header className="sticky top-0 z-40 w-full border-b hairline backdrop-blur bg-background/70 animate-fade-in">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center">
-          <Logo label={t("nav.logo") as string} />
+          {/* <Logo label={t("nav.logo") as string} /> */}
           <DesktopNav pathname={pathname} t={t} />
           <div className="flex flex-1 items-center justify-end gap-3">
             <MobileToggle

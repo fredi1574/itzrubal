@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import Image from "next/image";
 
 const aboutParagraphs = [
   "כאן מתחיל מסע שעובר דרך קירות, צבעים ורהיטים, אבל בליבו הוא עוסק ביצירת בית שמרגיש שלכם ושמשקף את מי שאתם באמת.",
@@ -55,6 +56,15 @@ const HomePage = (): JSX.Element => (
 
 const AboutSection = (): JSX.Element => (
   <section className="home-about-hero" id="about">
+    <div className="home-about-hero-logo">
+      <Image
+        src="/logo.png"
+        alt="Iztrubal logo"
+        width={210}
+        height={210}
+        className="home-about-hero-logo-image"
+      />
+    </div>
     <h1 className="home-about-hero-title">ברוכים הבאים</h1>
     <p className="home-about-hero-text">{aboutParagraphs[0]}</p>
   </section>
