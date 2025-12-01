@@ -594,14 +594,6 @@ footer {
   padding: 0 5%;
 }
 
-.home-about-content h2 {
-  font-size: 3rem;
-  font-weight: 300;
-  margin-bottom: 2rem;
-  color: #808570;
-  letter-spacing: 2px;
-}
-
 .home-about-content p {
   font-size: 1rem;
   line-height: 2;
@@ -669,11 +661,7 @@ footer {
 }
 
 .home-philosophy-content h2 {
-  font-size: 3rem;
-  font-weight: 300;
   margin-bottom: 3rem;
-  color: #808570;
-  letter-spacing: 2px;
 }
 
 .home-values {
@@ -716,12 +704,8 @@ footer {
 }
 
 .home-portfolio h2 {
-  font-size: 3rem;
-  font-weight: 300;
   text-align: center;
   margin-bottom: 4rem;
-  color: #808570;
-  letter-spacing: 2px;
 }
 
 .home-portfolio-grid {
@@ -779,14 +763,6 @@ footer {
   text-align: center;
 }
 
-.home-cta h2,
-.home-cta-title {
-  font-size: 3rem;
-  font-weight: 300;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
-}
-
 .home-cta p {
   margin-bottom: 3rem;
 }
@@ -818,6 +794,13 @@ footer {
   box-shadow: 0 10px 30px rgba(233, 226, 220, 0.2);
 }
 
+.home-section-title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+}
+
 @media (max-width: 768px) {
   .home-hero {
     background-attachment: scroll;
@@ -840,10 +823,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .home-about-content h2,
-  .home-philosophy-content h2,
-  .home-portfolio h2,
-  .home-cta h2 {
+  .home-about-hero-title,
+  .home-section-title {
     font-size: 2rem;
   }
 }
