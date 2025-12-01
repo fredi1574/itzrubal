@@ -779,7 +779,8 @@ footer {
   text-align: center;
 }
 
-.home-cta h2 {
+.home-cta h2,
+.home-cta-title {
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 2rem;
@@ -787,10 +788,15 @@ footer {
 }
 
 .home-cta p {
-  font-size: 1.3rem;
   margin-bottom: 3rem;
-  opacity: 0.9;
-  line-height: 1.8;
+}
+
+.home-cta-text {
+  font-size: 1.15rem;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 2;
 }
 
 .home-cta-secondary {

@@ -111,8 +111,7 @@ const PortfolioSection = (): JSX.Element => (
 const CallToActionSection = (): JSX.Element => (
   <section className="home-cta" id="contact">
     <h2 className="home-cta-title">מוכנים להתחיל?</h2>
-    {/* TODO: Change the text size */}
-    <p>
+    <p className="home-cta-text">
       בואו נדבר על איך אפשר להפוך את הבית שלכם
       <br />
       למקום שבאמת מרגיש כמו בית
