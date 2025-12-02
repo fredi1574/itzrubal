@@ -562,7 +562,7 @@ footer {
 
 .home-cta-button:hover {
   background: transparent;
-  color: #fff;
+  color: #e9e2dc;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
@@ -1095,7 +1095,7 @@ footer {
 }
 
 .about-cta-button:hover {
-  background: #fff;
+  background: #e9e2dc;
   color: #8b9079;
 }
 
@@ -1402,7 +1402,7 @@ footer {
 }
 
 .services-cta-button:hover {
-  background: #fff;
+  background: #e9e2dc;
   color: #8b9079;
 }
 
@@ -1642,7 +1642,7 @@ footer {
 }
 
 .projects-cta-button:hover {
-  background: #fff;
+  background: #e9e2dc;
   color: #8b9079;
 }
 

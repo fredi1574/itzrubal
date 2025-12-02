@@ -289,7 +289,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={status !== "idle"}
-                className="w-full py-5 bg-gradient-to-br from-accent mb-4 to-[#a89885] text-background border-none text-lg font-medium cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_20px_rgba(191,163,149,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-3 tracking-wide"
+                className="w-1/2 py-5 bg-gradient-to-br from-accent mb-4 to-[#a89885] text-background border-none text-lg font-medium cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_20px_rgba(191,163,149,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-3 tracking-wide"
               >
                 {status === "submitting" && (
                   <IoRefresh className="w-5 h-5 animate-spin" />
@@ -299,18 +299,6 @@ export default function ContactPage() {
                   : (t("contact.form.submitIdle") as string)}
               </button>
             </form>
-
-            {/* Next Steps Section */}
-            <div className="bg-gradient-to-br from-muted/50 to-muted/30  p-8 mb-10 border-r-4 border-accent">
-              <h3 className="heading-sm text-foreground mb-4 font-normal">
-                {(t("contact.nextStepsTitle") as string) ||
-                  "What happens after you send?"}
-              </h3>
-              <p className="text-body text-foreground/80 leading-relaxed text-base">
-                {(t("contact.nextStepsText") as string) ||
-                  "I'll get back to you within 24 hours, we'll schedule a short introductory call (no commitment), and we'll understand together how we can move forward."}
-              </p>
-            </div>
           </div>
         </div>
       </div>
