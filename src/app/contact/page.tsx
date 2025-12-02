@@ -1,8 +1,12 @@
 "use client";
 
+import { FaWhatsapp } from "react-icons/fa";
 import { FormEvent, useState } from "react";
 import { useLocale } from "../lib/LocaleProvider";
 import { IoCheckmark, IoCloseCircle, IoRefresh } from "react-icons/io5";
+import { FiPhone } from "react-icons/fi";
+import { MdAlternateEmail } from "react-icons/md";
+import { LuClock3, LuMapPin } from "react-icons/lu";
 
 export default function ContactPage() {
   const { t } = useLocale();
@@ -199,7 +203,9 @@ export default function ContactPage() {
                     <div className="space-y-5">
                       {/* Phone */}
                       <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-                        <div className="text-2xl min-w-[30px]">📞</div>
+                        <div className="text-2xl min-w-[30px]">
+                          <FiPhone />
+                        </div>
                         <div className="flex-1">
                           <span className="block font-semibold text-foreground mb-1">
                             {(t("contact.phone") as string) || "Phone"}
@@ -217,7 +223,9 @@ export default function ContactPage() {
 
                       {/* WhatsApp */}
                       <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-                        <div className="text-2xl min-w-[30px]">💬</div>
+                        <div className="text-2xl min-w-[30px]">
+                          <FaWhatsapp />
+                        </div>
                         <div className="flex-1">
                           <span className="block font-semibold text-foreground mb-1">
                             {(t("contact.whatsapp") as string) || "WhatsApp"}
@@ -238,7 +246,9 @@ export default function ContactPage() {
 
                       {/* Email */}
                       <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-                        <div className="text-2xl min-w-[30px]">✉️</div>
+                        <div className="text-2xl min-w-[30px]">
+                          <MdAlternateEmail />
+                        </div>
                         <div className="flex-1">
                           <span className="block font-semibold text-foreground mb-1">
                             {(t("contact.email") as string) || "Email"}
@@ -256,7 +266,9 @@ export default function ContactPage() {
 
                       {/* Location */}
                       <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-                        <div className="text-2xl min-w-[30px]">📍</div>
+                        <div className="text-2xl min-w-[30px]">
+                          <LuMapPin />
+                        </div>
                         <div className="flex-1">
                           <span className="block font-semibold text-foreground mb-1">
                             {(t("contact.location") as string) ||
@@ -271,7 +283,9 @@ export default function ContactPage() {
 
                       {/* Hours */}
                       <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-                        <div className="text-2xl min-w-[30px]">🕒</div>
+                        <div className="text-2xl min-w-[30px]">
+                          <LuClock3 />
+                        </div>
                         <div className="flex-1">
                           <span className="block font-semibold text-foreground mb-1">
                             {(t("contact.hours") as string) ||
