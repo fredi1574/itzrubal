@@ -89,10 +89,6 @@ export default function ContactPage() {
               {(t("contact.headerTitle") as string) ||
                 "Let's start planning together"}
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed opacity-95 max-w-2xl mx-auto">
-              {(t("contact.headerSubtitle") as string) ||
-                "If you've reached here, your home is probably asking to change—and I'm here for you."}
-            </p>
           </div>
 
           {/* Content Section */}

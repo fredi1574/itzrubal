@@ -47,7 +47,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "Contact",
       subtitle: "Share your project—let's design something beautiful.",
-      headerTitle: "Let's start planning together",
+      headerTitle: "Let's talk",
       headerSubtitle:
         "If you've reached here, your home is probably asking to change—and I'm here for you. I'd love to meet, listen and understand what's important to you, and plan together a place that truly feels yours.",
       formTitle: "Leave your details",
@@ -242,7 +242,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "צור קשר",
       subtitle: "ספרו לנו על הפרויקט — ניצור משהו יפהפה יחד.",
-      headerTitle: "בואו נתחיל לתכנן ביחד",
+      headerTitle: "בואו נדבר",
       headerSubtitle:
         "אם הגעתם לכאן, כנראה שהבית שלכם מבקש להשתנות - ואני כאן בשבילכם. אשמח להכיר, להקשיב ולהבין מה חשוב לכם, ולתכנן ביחד מקום שמרגיש באמת שלכם.",
       formTitle: "השאירו פרטים",
