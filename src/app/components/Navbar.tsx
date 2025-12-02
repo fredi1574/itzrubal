@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState, type JSX } from "react";
-import { createPortal } from "react-dom";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState, type JSX } from "react";
+import { createPortal } from "react-dom";
 import { useLocale } from "../lib/LocaleProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 
