@@ -631,7 +631,6 @@ footer {
 }
 
 .home-about-hero-title {
-  /* font-size: clamp(25px, 6vw, 4rem); */
   font-size: 3rem;
   font-weight: 200;
   letter-spacing: 5px;
@@ -640,13 +639,12 @@ footer {
 }
 
 .home-about-hero-text {
-  /* font-size: clamp(14px, 3vw, 1.4rem); */
   font-size: 1.15rem;
   font-weight: 300;
   max-width: 800px;
   margin: 0 auto;
   line-height: 2;
-  color: #808570;
+  color: #737865;
 }
 
 .home-philosophy {
