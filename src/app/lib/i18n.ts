@@ -61,7 +61,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       nextStepsTitle: "What happens after you send?",
       nextStepsText:
         "I'll get back to you within 24 - 72 hours, we'll schedule a short introductory call (no commitment), and we'll understand together how we can move forward.",
-      contactInfoTitle: "Additional contact methods",
       phone: "Phone",
       whatsapp: "WhatsApp",
       whatsappLink: "Send a message",
@@ -256,7 +255,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       nextStepsTitle: "מה קורה אחרי שתשלחו?",
       nextStepsText:
         "אחזור אליכם תוך 24 - 72 שעות, נקבע שיחת היכרות קצרה (ללא התחייבות), ונבין ביחד איך אפשר להתקדם.",
-      contactInfoTitle: "דרכי קשר נוספות",
       phone: "טלפון",
       whatsapp: "וואטסאפ",
       whatsappLink: "שלחו הודעה",

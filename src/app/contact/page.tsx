@@ -86,7 +86,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-[calc(100vh-200px)] py-10 px-4">
       <div className="max-w-4xl mx-auto w-full">
-        <div className="bg-background rounded-3xl overflow-hidden">
+        <div className=" rounded-3xl overflow-hidden">
           {/* Header Section */}
           <div className="bg-gradient-to-br from-accent to-[#a89885] text-background py-16 px-8 md:px-12 text-center">
             <h1 className="heading-xl mb-6 text-background font-light tracking-wide">
@@ -194,22 +194,14 @@ export default function ContactPage() {
 
                 {/* Contact Info Section */}
                 <div className="lg:w-3/5">
-                  <div className="bg-muted/30 pt-0 pb-2 px-2 md:pt-0 md:pb-10 md:px-10">
-                    <h2 className="heading-md py-2 text-foreground font-normal text-center">
-                      {(t("contact.contactInfoTitle") as string) ||
-                        "Additional contact methods"}
-                    </h2>
-
+                  <div className="pt-0 pb-2 px-2 md:pt-0 md:pb-10 md:px-10">
                     <div className="space-y-5">
                       {/* Phone */}
-                      <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                      <div className="flex items-center gap-4 p-4  rounded-xl transition-all duration-300 hover:scale-[1.02]">
                         <div className="text-2xl min-w-[30px]">
                           <FiPhone />
                         </div>
                         <div className="flex-1">
-                          <span className="block font-semibold text-foreground mb-1">
-                            {(t("contact.phone") as string) || "Phone"}
-                          </span>
                           <span className="text-foreground/70">
                             <a
                               href="tel:+972503200133"
@@ -222,14 +214,11 @@ export default function ContactPage() {
                       </div>
 
                       {/* WhatsApp */}
-                      <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                      <div className="flex items-center gap-4 p-4  rounded-xl transition-all duration-300 hover:scale-[1.02]">
                         <div className="text-2xl min-w-[30px]">
                           <FaWhatsapp />
                         </div>
                         <div className="flex-1">
-                          <span className="block font-semibold text-foreground mb-1">
-                            {(t("contact.whatsapp") as string) || "WhatsApp"}
-                          </span>
                           <span className="text-foreground/70">
                             <a
                               href="https://wa.me/972500000000"
@@ -245,14 +234,11 @@ export default function ContactPage() {
                       </div>
 
                       {/* Email */}
-                      <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                      <div className="flex items-center gap-4 p-4  rounded-xl transition-all duration-300 hover:scale-[1.02]">
                         <div className="text-2xl min-w-[30px]">
                           <MdAlternateEmail />
                         </div>
                         <div className="flex-1">
-                          <span className="block font-semibold text-foreground mb-1">
-                            {(t("contact.email") as string) || "Email"}
-                          </span>
                           <span className="text-foreground/70">
                             <a
                               href="mailto:design@example.com"
@@ -265,15 +251,11 @@ export default function ContactPage() {
                       </div>
 
                       {/* Location */}
-                      <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                      <div className="flex items-center gap-4 p-4  rounded-xl transition-all duration-300 hover:scale-[1.02]">
                         <div className="text-2xl min-w-[30px]">
                           <LuMapPin />
                         </div>
                         <div className="flex-1">
-                          <span className="block font-semibold text-foreground mb-1">
-                            {(t("contact.location") as string) ||
-                              "Service area"}
-                          </span>
                           <span className="text-foreground/70">
                             {(t("contact.locationValue") as string) ||
                               "Haifa, Krayot and the North"}
@@ -282,15 +264,11 @@ export default function ContactPage() {
                       </div>
 
                       {/* Hours */}
-                      <div className="flex items-center gap-4 p-4 bg-background rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                      <div className="flex items-center gap-4 p-4  rounded-xl transition-all duration-300 hover:scale-[1.02]">
                         <div className="text-2xl min-w-[30px]">
                           <LuClock3 />
                         </div>
                         <div className="flex-1">
-                          <span className="block font-semibold text-foreground mb-1">
-                            {(t("contact.hours") as string) ||
-                              "Available hours"}
-                          </span>
                           <span className="text-foreground/70">
                             {(t("contact.hoursValue") as string) ||
                               "Sun–Thu, 9:00–17:00"}
