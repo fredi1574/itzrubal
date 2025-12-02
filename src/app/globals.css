@@ -46,6 +46,45 @@ body {
   color: #8b9079;
 }
 
+.contact-page {
+  color: #615b55;
+}
+
+.contact-page .text-foreground,
+.contact-page [class*="text-foreground"] {
+  color: #615b55 !important;
+}
+
+.contact-page .text-body {
+  color: #615b55;
+}
+
+.contact-page .text-caption {
+  color: #615b55;
+}
+
+.contact-page label,
+.contact-page p,
+.contact-page span:not(.text-accent):not(.text-background),
+.contact-page h1:not(.text-background),
+.contact-page h2:not(.text-background),
+.contact-page h3:not(.text-background) {
+  color: #615b55;
+}
+
+.contact-page input,
+.contact-page textarea {
+  color: #615b55;
+}
+
+.contact-page [class*="text-foreground/70"] {
+  color: rgba(97, 91, 85, 0.7) !important;
+}
+
+.contact-page [class*="text-foreground/80"] {
+  color: rgba(97, 91, 85, 0.8) !important;
+}
+
 .card {
   background-color: var(--muted);
   border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);

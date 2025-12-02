@@ -50,7 +50,7 @@ export default function ContactPage() {
 
   if (status === "success") {
     return (
-      <div className="min-h-[calc(100vh-200px)] flex items-center justify-center py-8 px-4">
+      <div className="contact-page min-h-[calc(100vh-200px)] flex items-center justify-center py-8 px-4">
         <div className="max-w-2xl mx-auto text-center animate-fade-in-up w-full">
           <div className="bg-gradient-to-br from-accent/10 to-accent/5 p-8 border border-accent/20 rounded-3xl">
             <div className="w-16 h-16 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
@@ -84,7 +84,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-200px)] py-10 px-4">
+    <div className="contact-page min-h-[calc(100vh-200px)] py-10 px-4">
       <div className="max-w-4xl mx-auto w-full">
         <div className=" rounded-3xl overflow-hidden">
           {/* Header Section */}
@@ -180,11 +180,7 @@ export default function ContactPage() {
                         name="message"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        placeholder={
-                          (t("contact.messagePlaceholder") as string) ||
-                          "Which space would you like to change?"
-                        }
-                        rows={6}
+                        rows={4}
                         disabled={status === "submitting"}
                         className="w-full px-4 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_0_0_3px_rgba(191,163,149,0.1)] resize-y min-h-[150px] disabled:opacity-60"
                       />

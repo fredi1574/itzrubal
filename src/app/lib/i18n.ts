@@ -55,8 +55,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       phoneLabel: "Phone",
       emailLabel: "Email",
       messageLabel: "Tell me a bit about the project",
-      messagePlaceholder:
-        "Which space would you like to change? What bothers you most today? What would you like to feel in the new home?",
       required: "*",
       nextStepsTitle: "What happens after you send?",
       nextStepsText:
@@ -249,8 +247,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       phoneLabel: "טלפון",
       emailLabel: "אימייל",
       messageLabel: "ספרו לי קצת על הפרויקט",
-      messagePlaceholder:
-        "איזה חלל תרצו לשנות? מה הכי מפריע לכם היום? מה הייתם רוצים להרגיש בבית החדש?",
       required: "*",
       nextStepsTitle: "מה קורה אחרי שתשלחו?",
       nextStepsText:
