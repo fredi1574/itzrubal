@@ -757,8 +757,8 @@ footer {
 .home-cta {
   background: linear-gradient(135deg, #8b9079 0%, #6b7160 100%);
   color: #fff;
-  padding: 2rem;
   text-align: center;
+  min-height: 30vh;
 }
 
 .home-cta p {

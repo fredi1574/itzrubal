@@ -116,7 +116,7 @@ const CallToActionSection = (): JSX.Element => (
       <br />
       למקום שבאמת מרגיש כמו בית
     </p>
-    <Link className="home-cta-secondary" href="/contact">
+    <Link className="home-cta-secondary mb-4" href="/contact">
       צרו קשר
     </Link>
   </section>
