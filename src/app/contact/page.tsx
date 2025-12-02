@@ -101,9 +101,6 @@ export default function ContactPage() {
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-12">
                 {/* Form Section */}
                 <div className="lg:w-3/5">
-                  <h2 className="heading-md text-foreground mb-8 font-normal">
-                    {(t("contact.formTitle") as string) || "Leave your details"}
-                  </h2>
                   <div className="space-y-6">
                     <div>
                       <label

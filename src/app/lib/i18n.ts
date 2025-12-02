@@ -50,7 +50,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       headerTitle: "Let's talk",
       headerSubtitle:
         "If you've reached here, your home is probably asking to change—and I'm here for you. I'd love to meet, listen and understand what's important to you, and plan together a place that truly feels yours.",
-      formTitle: "Leave your details",
       nameLabel: "Full name",
       phoneLabel: "Phone",
       emailLabel: "Email",
@@ -240,7 +239,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       headerTitle: "בואו נדבר",
       headerSubtitle:
         "אם הגעתם לכאן, כנראה שהבית שלכם מבקש להשתנות - ואני כאן בשבילכם. אשמח להכיר, להקשיב ולהבין מה חשוב לכם, ולתכנן ביחד מקום שמרגיש באמת שלכם.",
-      formTitle: "השאירו פרטים",
       nameLabel: "שם מלא",
       phoneLabel: "טלפון",
       emailLabel: "אימייל",
