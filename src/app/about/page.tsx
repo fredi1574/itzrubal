@@ -104,9 +104,8 @@ const ValuesSection = (): JSX.Element => (
 
 const ClosingSection = (): JSX.Element => (
   <section className="about-closing">
-    <h2 className="about-closing-title">נעים להכיר</h2>
     <p className="about-closing-text">
-      אני מזמינה אתכם למסע משותף – מסע שבו נבין יחד מה באמת חשוב לכם, נחלום על
+      אני מזמינה אתכם למסע משותף שבו נבין יחד מה באמת חשוב לכם, נחלום על
       האפשרויות, וניצור את הבית שמשקף את מי שאתם באמת.
     </p>
   </section>

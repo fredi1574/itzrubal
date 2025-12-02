@@ -466,7 +466,8 @@ footer {
 }
 
 .home-hero {
-  min-height: 80vh;
+  min-height: 35vh;
+  max-height: 35vh;
   background-image: linear-gradient(
       rgba(139, 144, 121, 0.3),
       rgba(139, 144, 121, 0.4)
@@ -604,6 +605,7 @@ footer {
 .home-about-hero {
   margin-top: 6rem;
   min-height: 35vh;
+  max-height: 35vh;
   padding: 4rem 5%;
   text-align: center;
   background: linear-gradient(135deg, #e9e2dc 0%, #ddcfc2 100%);
@@ -754,11 +756,13 @@ footer {
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
 }
 
+/* Fix the height of the call to action section */
 .home-cta {
   background: linear-gradient(135deg, #8b9079 0%, #6b7160 100%);
   color: #fff;
   text-align: center;
-  min-height: 30vh;
+  min-height: 35vh;
+  max-height: 35vh;
 }
 
 .home-cta p {
@@ -783,6 +787,7 @@ footer {
   letter-spacing: 2px;
   border: 2px solid #fff;
   transition: all 0.4s ease;
+  margin-bottom: 2rem;
 }
 
 .home-cta-secondary:hover {
@@ -835,6 +840,7 @@ footer {
 .about-hero {
   margin-top: 6rem;
   min-height: 35vh;
+  max-height: 35vh;
   padding: 4rem 5%;
   background: linear-gradient(135deg, #e9e2dc 0%, #ddcfc2 100%);
   text-align: center;
@@ -1088,6 +1094,7 @@ footer {
 .services-hero {
   margin-top: 6rem;
   min-height: 35vh;
+  max-height: 35vh;
   padding: 4rem 5%;
   text-align: center;
   background: linear-gradient(135deg, #e9e2dc 0%, #ddcfc2 100%);
@@ -1384,6 +1391,7 @@ footer {
 .projects-hero {
   margin-top: 6rem;
   min-height: 35vh;
+  max-height: 35vh;
   padding: 4rem 5%;
   text-align: center;
   background: linear-gradient(135deg, #e9e2dc 0%, #ddcfc2 100%);
